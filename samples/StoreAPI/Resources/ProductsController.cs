@@ -13,13 +13,13 @@ namespace StoreAPI.Resources
         [HttpGet]
         public ActionResult<string[]> Get()
         {
-            return new string[] { "" };
+            return new string[] { "Product A", "Product B" };
         }
 
         [HttpGet("{productid}")]
         public ActionResult<string> Get(int productid)
         {
-            return "";
+            return "Some Product";
         }
         [HttpPost]
         public void Post([FromBody] string value)
@@ -27,19 +27,19 @@ namespace StoreAPI.Resources
 
         }
 
-        [HttpPut("productid")]
+        [HttpPut("{productid}")]
         public void Put(int productid, [FromBody] string value)
         {
 
         }
 
-        [HttpPatch("productid")]
+        [HttpPatch("{productid}")]
         public void Patch(int productid, [FromBody] string value)
         {
 
         }
 
-        [HttpDelete("productid")]
+        [HttpDelete("{productid}")]
         public void Delete(int productid)
         {
 

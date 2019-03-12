@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Application\Interfaces\" />
     <Folder Include="Core\Infrastructures\Data\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>
