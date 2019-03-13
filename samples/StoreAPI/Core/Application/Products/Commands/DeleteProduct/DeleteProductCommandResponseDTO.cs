@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoreAPI.Core.Application.Products.Queries.GetProductsByFilter
+namespace StoreAPI.Core.Application.Products.Commands.DeleteProduct
 {
-    public class GetProductsByFilterQueryResponseItem
+    public class DeleteProductCommandResponseDTO
     {
         public int ProductID { get; set; }
         public int CategoryID { get; set; }

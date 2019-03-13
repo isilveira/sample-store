@@ -9,6 +9,6 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductsByFilter
     {
         public GetProductsByFilterQuery Request { get; set; }
         public int ResultCount { get; set; }
-        public List<GetProductsByFilterQueryResponseItem> Results { get; set; }
+        public List<GetProductsByFilterQueryResponseDTO> Data { get; set; }
     }
 }

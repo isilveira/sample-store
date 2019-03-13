@@ -27,7 +27,7 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductsByFilter
             {
                 Request = request,
                 ResultCount = resultCount,
-                Results = results.Select(result => new GetProductsByFilterQueryResponseItem
+                Data = results.Select(result => new GetProductsByFilterQueryResponseDTO
                 {
                     ProductID = result.ProductID,
                     CategoryID = result.CategoryID,

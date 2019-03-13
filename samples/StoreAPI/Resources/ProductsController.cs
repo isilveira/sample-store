@@ -1,6 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using StoreAPI.Core.Application.Products.Commands.DeleteProduct;
+using StoreAPI.Core.Application.Products.Commands.PostProduct;
+using StoreAPI.Core.Application.Products.Queries.GetProductByID;
 using StoreAPI.Core.Application.Products.Queries.GetProductsByFilter;
+using StoreAPI.Resources._Bases;
 using System;
 using System.Threading.Tasks;
 
@@ -8,36 +12,23 @@ namespace StoreAPI.Resources
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : ResourceControllerBase
     {
-        private IMediator Mediator { get; set; }
-        public ProductsController(IMediator mediator)
-        {
-            Mediator = mediator;
-        }
-
         [HttpGet]
         public async Task<ActionResult<GetProductsByFilterQueryResponse>> Get([FromQuery]GetProductsByFilterQuery request)
         {
-            try
-            {
-                return Ok(await Mediator.Send(request));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
+            return await Send(request);
         }
 
         [HttpGet("{productid}")]
-        public ActionResult<string> Get(int productid)
+        public async Task<ActionResult<GetProductByIDQueryResponse>> Get([FromRoute] GetProductByIDQuery request)
         {
-            return "Some Product";
+            return await Send(request);
         }
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<PostProductCommandResponse>> Post([FromBody] PostProductCommand request)
         {
-
+            return await Send(request);
         }
 
         [HttpPut("{productid}")]
@@ -53,9 +44,9 @@ namespace StoreAPI.Resources
         }
 
         [HttpDelete("{productid}")]
-        public void Delete(int productid)
+        public async Task<ActionResult<DeleteProductCommandResponse>> Delete([FromRoute]DeleteProductCommand request)
         {
-
+            return await Send(request);
         }
     }
 }
