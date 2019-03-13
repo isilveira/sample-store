@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using StoreAPI.Core.Application.Products.Queries.GetProductsByFilter;
+using System;
+using System.Threading.Tasks;
 
 namespace StoreAPI.Resources
 {
@@ -6,14 +10,23 @@ namespace StoreAPI.Resources
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        public ProductsController()
+        private IMediator Mediator { get; set; }
+        public ProductsController(IMediator mediator)
         {
-
+            Mediator = mediator;
         }
+
         [HttpGet]
-        public ActionResult<string[]> Get()
+        public async Task<ActionResult<GetProductsByFilterQueryResponse>> Get([FromQuery]GetProductsByFilterQuery request)
         {
-            return new string[] { "Product A", "Product B" };
+            try
+            {
+                return Ok(await Mediator.Send(request));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         [HttpGet("{productid}")]
