@@ -10,6 +10,7 @@ using StoreAPI.Core.Application.Interfaces;
 using StoreAPI.Core.Domain.Entities;
 using StoreAPI.Core.Infrastructures.Data;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -66,7 +67,7 @@ namespace StoreAPI
         {
             Chance chance = new Chance();
 
-            while(context.Categories.Count() < inserts)
+            while (context.Categories.Count() < inserts)
             {
                 for (int i = context.Categories.Count(); i < inserts; i++)
                 {
@@ -105,6 +106,16 @@ namespace StoreAPI
                         IsVisible = chance.Bool(),
                         CategoryID = chance.Integer(1, 50)
                     };
+
+                    if (product.Images == null)
+                    {
+                        product.Images = new List<Image>();
+                    }
+
+                    for (int x = 0; x <= chance.Integer(1, 5); x++)
+                    {
+                        product.Images.Add(new Image { MimeType = "image/jpg", Url = "https://picsum.photos/500/500?image=" + chance.Integer(0, 1000).ToString() });
+                    }
 
                     await context.Products.AddAsync(product);
 

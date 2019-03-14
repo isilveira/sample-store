@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Core\Application\Products\Commands\PatchProduct\" />
-    <Folder Include="Core\Application\Products\Commands\Putproduct\" />
   </ItemGroup>
 
 </Project>

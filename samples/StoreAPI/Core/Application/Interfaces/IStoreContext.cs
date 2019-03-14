@@ -12,6 +12,7 @@ namespace StoreAPI.Core.Application.Interfaces
     {
         DbSet<Category> Categories { get; set; }
         DbSet<Product> Products { get; set; }
+        DbSet<Image> Images { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

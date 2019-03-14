@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoreAPI.Core.Domain.Entities
+namespace StoreAPI.Core.Application.Products.Commands.PutProduct
 {
-    public class Product
+    public class PutProductCommandResponseDTO
     {
         public int ProductID { get; set; }
         public int CategoryID { get; set; }
@@ -18,9 +18,5 @@ namespace StoreAPI.Core.Domain.Entities
 
         public DateTime? RegistrationDate { get; set; }
         public bool IsVisible { get; set; }
-
-        public List<Image> Images { get; set; }
-        public Category Category { get; set; }
-        //public List<OrderedProduct> OrderedProducts { get; set; }
     }
 }
