@@ -58,10 +58,35 @@ namespace StoreAPI
 
         private async Task SeedStoreContextAsync(IStoreContext context)
         {
-            SeedProducts(context, 1_000).Wait();
+            await SeedCategoryAsync(context, 50);
+            await SeedProductsAsync(context, 1_000);
         }
 
-        private async Task SeedProducts(IStoreContext context, int inserts)
+        private async Task SeedCategoryAsync(IStoreContext context, int inserts)
+        {
+            Chance chance = new Chance();
+
+            while(context.Categories.Count() < inserts)
+            {
+                for (int i = context.Categories.Count(); i < inserts; i++)
+                {
+                    var category = new Category
+                    {
+                        Name = chance.Word(0, 0, true),
+                        Description = chance.Paragraph(3),
+                        RootCategoryID = chance.Bool() && i > 0 ? chance.Integer(1, i) : default(int?)
+                    };
+
+                    await context.Categories.AddAsync(category);
+
+                    chance = chance.New();
+                }
+
+                await context.SaveChangesAsync();
+            }
+        }
+
+        private async Task SeedProductsAsync(IStoreContext context, int inserts)
         {
             Chance chance = new Chance();
 
@@ -69,7 +94,7 @@ namespace StoreAPI
             {
                 for (int i = context.Products.Count(); i < inserts; i++)
                 {
-                    await context.Products.AddAsync(new Product
+                    var product = new Product
                     {
                         Name = chance.Sentence(6, 0, true, true, '.'),
                         Description = chance.Paragraph(3),
@@ -79,12 +104,14 @@ namespace StoreAPI
                         RegistrationDate = chance.Date(0, 0, 0, 2010, 2018),
                         IsVisible = chance.Bool(),
                         CategoryID = chance.Integer(1, 50)
-                    });
+                    };
+
+                    await context.Products.AddAsync(product);
 
                     chance = chance.New();
                 }
 
-                context.SaveChangesAsync().Wait();
+                await context.SaveChangesAsync();
             }
         }
     }

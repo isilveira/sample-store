@@ -20,7 +20,7 @@ namespace StoreAPI.Core.Domain.Entities
         public bool IsVisible { get; set; }
 
         //public List<Image> Images { get; set; }
-        //public Category Category { get; set; }
+        public Category Category { get; set; }
         //public List<OrderedProduct> OrderedProducts { get; set; }
     }
 }

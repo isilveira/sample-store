@@ -10,6 +10,7 @@ namespace StoreAPI.Core.Application.Interfaces
 {
     public interface IStoreContext
     {
+        DbSet<Category> Categories { get; set; }
         DbSet<Product> Products { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
