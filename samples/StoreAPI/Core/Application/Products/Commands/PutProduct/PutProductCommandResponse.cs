@@ -7,7 +7,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PutProduct
 {
     public class PutProductCommandResponse
     {
-        public PutProductCommand request { get; set; }
+        public PutProductCommand Request { get; set; }
         public string Message { get; set; }
         public PutProductCommandResponseDTO Data { get; set; }
     }

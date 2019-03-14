@@ -37,7 +37,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PostProduct
 
             return new PostProductCommandResponse
             {
-                request = request,
+                Request = request,
                 Message = "Successful operation!",
                 Data = new PostProductCommandResponseDTO
                 {

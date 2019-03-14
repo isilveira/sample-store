@@ -31,7 +31,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PutProduct
 
             return new PutProductCommandResponse
             {
-                request = request,
+                Request = request,
                 Message = "Successful operation!",
                 Data = new PutProductCommandResponseDTO
                 {
