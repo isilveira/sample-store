@@ -19,6 +19,9 @@ namespace StoreAPI.Core.Application.Products.Commands.PutProduct
         {
             var data = await Context.Products.SingleOrDefaultAsync(x => x.ProductID == request.ProductID);
 
+            if (data == null)
+                throw new Exception("Product not found!");
+
             data.CategoryID = request.CategoryID;
             data.Name = request.Name;
             data.Description = request.Description;

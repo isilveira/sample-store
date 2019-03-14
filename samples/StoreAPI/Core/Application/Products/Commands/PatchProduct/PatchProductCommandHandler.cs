@@ -20,6 +20,9 @@ namespace StoreAPI.Core.Application.Products.Commands.PatchProduct
         {
             var data = await Context.Products.SingleOrDefaultAsync(x => x.ProductID == request.ProductID);
 
+            if (data == null)
+                throw new Exception("Product not found!");
+
             if (request.Amount.HasValue) data.Amount = request.Amount.Value;
             if (request.CategoryID.HasValue) data.CategoryID = request.CategoryID.Value;
             if (!string.IsNullOrWhiteSpace(request.Name)) data.Name = request.Name;

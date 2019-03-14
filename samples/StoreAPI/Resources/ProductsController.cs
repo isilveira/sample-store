@@ -12,8 +12,6 @@ using System.Threading.Tasks;
 
 namespace StoreAPI.Resources
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class ProductsController : ResourceControllerBase
     {
         [HttpGet]

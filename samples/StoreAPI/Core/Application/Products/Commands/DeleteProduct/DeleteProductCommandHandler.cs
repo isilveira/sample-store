@@ -29,7 +29,7 @@ namespace StoreAPI.Core.Application.Products.Commands.DeleteProduct
 
             return new DeleteProductCommandResponse
             {
-                request = request,
+                Request = request,
                 Message = "Successful operation!",
                 Data = new DeleteProductCommandResponseDTO
                 {

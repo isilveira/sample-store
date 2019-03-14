@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace StoreAPI.Resources._Bases
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ResourceControllerBase: ControllerBase
     {
         private IMediator _mediator;

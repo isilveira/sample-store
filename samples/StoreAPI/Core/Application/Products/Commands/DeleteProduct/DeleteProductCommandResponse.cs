@@ -7,7 +7,7 @@ namespace StoreAPI.Core.Application.Products.Commands.DeleteProduct
 {
     public class DeleteProductCommandResponse
     {
-        public DeleteProductCommand request { get; set; }
+        public DeleteProductCommand Request { get; set; }
         public string Message { get; set; }
         public DeleteProductCommandResponseDTO Data { get; set; }
     }
