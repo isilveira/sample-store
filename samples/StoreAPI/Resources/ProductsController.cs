@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using StoreAPI.Core.Application.Products.Commands.DeleteProduct;
+using StoreAPI.Core.Application.Products.Commands.PatchProduct;
 using StoreAPI.Core.Application.Products.Commands.PostProduct;
 using StoreAPI.Core.Application.Products.Commands.PutProduct;
 using StoreAPI.Core.Application.Products.Queries.GetProductByID;
@@ -40,9 +41,10 @@ namespace StoreAPI.Resources
         }
 
         [HttpPatch("{productid}")]
-        public void Patch(int productid, [FromBody] string value)
+        public async Task<ActionResult<PatchProductCommandResponse>> Patch([FromRoute]int productid, [FromBody] PatchProductCommand request)
         {
-
+            request.ProductID = productid;
+            return await Send(request);
         }
 
         [HttpDelete("{productid}")]
