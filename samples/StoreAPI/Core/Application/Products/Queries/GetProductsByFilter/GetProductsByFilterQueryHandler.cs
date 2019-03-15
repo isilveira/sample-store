@@ -25,17 +25,17 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductsByFilter
             {
                 Request = request,
                 ResultCount = resultCount,
-                Data = results.Select(result => new GetProductsByFilterQueryResponseDTO
+                Data = results.Select(data => new GetProductsByFilterQueryResponseDTO
                 {
-                    ProductID = result.ProductID,
-                    CategoryID = result.CategoryID,
-                    Name = result.Name,
-                    Description = result.Description,
-                    Specifications = result.Specifications,
-                    RegistrationDate = result.RegistrationDate,
-                    Value = result.Value,
-                    Amount = result.Amount,
-                    IsVisible = result.IsVisible
+                    ProductID = data.ProductID,
+                    CategoryID = data.CategoryID,
+                    Name = data.Name,
+                    Description = data.Description,
+                    Specifications = data.Specifications,
+                    RegistrationDate = data.RegistrationDate,
+                    Value = data.Value,
+                    Amount = data.Amount,
+                    IsVisible = data.IsVisible
                 }).ToList()
             };
         }

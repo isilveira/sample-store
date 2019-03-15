@@ -23,12 +23,12 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoriesByFilter
             {
                 Request = request,
                 ResultCount = resultCount,
-                Data = results.Select(result => new GetCategoriesByFilterQueryResponseDTO
+                Data = results.Select(data => new GetCategoriesByFilterQueryResponseDTO
                 {
-                    CategoryID = result.CategoryID,
-                    RootCategoryID = result.RootCategoryID,
-                    Name = result.Name,
-                    Description = result.Description
+                    CategoryID = data.CategoryID,
+                    RootCategoryID = data.RootCategoryID,
+                    Name = data.Name,
+                    Description = data.Description
                 }).ToList()
             };
         }
