@@ -10,6 +10,8 @@ namespace StoreAPI.Core.Infrastructures.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderedProduct> OrderedProducts { get; set; }
         protected StoreContext()
         {
             base.Database.EnsureCreated();

@@ -14,6 +14,8 @@ namespace StoreAPI.Core.Application.Interfaces.Contexts
         DbSet<Product> Products { get; set; }
         DbSet<Image> Images { get; set; }
         DbSet<Customer> Customers { get; set; }
+        DbSet<Order> Orders { get; set; }
+        DbSet<OrderedProduct> OrderedProducts {get;set;}
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

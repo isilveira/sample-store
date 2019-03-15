@@ -62,6 +62,66 @@ namespace StoreAPI
             await SeedCategoryAsync(context, 50);
             await SeedProductsAsync(context, 1_000);
             await SeedConstumersAsync(context, 500);
+            await SeedOrders(context);
+        }
+
+        private async Task SeedOrders(IStoreContext context)
+        {
+            Chance chance = new Chance();
+
+            if (await context.Orders.CountAsync() > 0)
+            {
+                return;
+            }
+
+            var custumers = await context.Customers.ToListAsync();
+
+            foreach(var customer in custumers)
+            {
+                if (chance.Bool())
+                {
+                    int productCount = chance.Integer(1, 4);
+                    var date = chance.Date(0, 0, 0, customer.RegistrationDate.Year + 1, 2019);
+                    var confirmed = chance.Bool();
+                    var order = new Order
+                    {
+                        RegistrationDate = date,
+                        ConfirmationDate = confirmed ? date : default(DateTime?),
+                        CancellationDate = !confirmed ? date : default(DateTime?),
+                        OrderedProducts = new List<OrderedProduct>()
+                    };
+                    for (int i = 0; i < productCount; i++)
+                    {
+                        var productMaxID = context.Products.Max(x => x.ProductID);
+                        var productID = chance.Integer(1, productMaxID);
+                        var product = await context.Products.SingleOrDefaultAsync(x => x.ProductID == productID);
+
+                        while (product == null)
+                        {
+                            productID = chance.Integer(1, productMaxID);
+                            product = await context.Products.SingleOrDefaultAsync(x => x.ProductID == productID);
+                        }
+
+                        var orderedProduct = new OrderedProduct
+                        {
+                            Amount = chance.Integer(1, 4),
+                            Value = product.Value,
+                            ProductID = product.ProductID,
+                            RegistrationDate = date
+                        };
+
+                        order.OrderedProducts.Add(orderedProduct);
+                    }
+                    if (customer.Orders == null)
+                    {
+                        customer.Orders = new List<Order>();
+                    }
+                    customer.Orders.Add(order);
+                }
+                chance = chance.New();
+            }
+
+            await context.SaveChangesAsync();
         }
 
         private async Task SeedCategoryAsync(IStoreContext context, int inserts)
