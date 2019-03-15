@@ -61,6 +61,7 @@ namespace StoreAPI
         {
             await SeedCategoryAsync(context, 50);
             await SeedProductsAsync(context, 1_000);
+            await SeedConstumersAsync(context, 500);
         }
 
         private async Task SeedCategoryAsync(IStoreContext context, int inserts)
@@ -118,6 +119,30 @@ namespace StoreAPI
                     }
 
                     await context.Products.AddAsync(product);
+
+                    chance = chance.New();
+                }
+
+                await context.SaveChangesAsync();
+            }
+        }
+
+        private async Task SeedConstumersAsync(IStoreContext context, int inserts)
+        {
+            Chance chance = new Chance();
+
+            while (context.Customers.Count() < inserts)
+            {
+                for (int i = context.Customers.Count(); i < inserts; i++)
+                {
+                    var customer = new Customer
+                    {
+                        Name = chance.FullName(),
+                        Email = chance.Email(),
+                        RegistrationDate = chance.Date(0, 0, 0, 2010, 2018)
+                    };
+
+                    await context.Customers.AddAsync(customer);
 
                     chance = chance.New();
                 }

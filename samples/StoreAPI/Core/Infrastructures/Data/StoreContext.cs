@@ -6,6 +6,10 @@ namespace StoreAPI.Core.Infrastructures.Data
 {
     public class StoreContext : DbContext, IStoreContext
     {
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         protected StoreContext()
         {
             base.Database.EnsureCreated();
@@ -15,9 +19,5 @@ namespace StoreAPI.Core.Infrastructures.Data
         {
             base.Database.EnsureCreated();
         }
-
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Image> Images { get; set; }
     }
 }
