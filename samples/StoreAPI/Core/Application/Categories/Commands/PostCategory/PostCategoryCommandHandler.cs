@@ -1,9 +1,6 @@
 ﻿using MediatR;
-using StoreAPI.Core.Application.Interfaces;
+using StoreAPI.Core.Application.Interfaces.Contexts;
 using StoreAPI.Core.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 

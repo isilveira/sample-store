@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using StoreAPI.Core.Application.Interfaces.Contexts;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using StoreAPI.Core.Application.Interfaces;
 
 namespace StoreAPI.Core.Application.Products.Commands.PutProduct
 {
@@ -28,7 +27,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PutProduct
             data.Specifications = request.Specifications;
             data.Value = request.Value;
             data.Amount = request.Amount;
-            data.IsVisible = request.IsVisible;            
+            data.IsVisible = request.IsVisible;
 
             await Context.SaveChangesAsync();
 

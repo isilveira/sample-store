@@ -1,9 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using StoreAPI.Core.Application.Interfaces;
+using StoreAPI.Core.Application.Interfaces.Contexts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,10 +19,13 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductByID
             var data = await Context.Products.SingleOrDefaultAsync(x => x.ProductID == request.ProductID);
 
             if (data == null)
+            {
                 throw new Exception("Product not found!");
+            }
 
             return new GetProductByIDQueryResponse
             {
+                ResultCount = 1,
                 Request = request,
                 Data = new GetProductByIDQueryResponseDTO
                 {

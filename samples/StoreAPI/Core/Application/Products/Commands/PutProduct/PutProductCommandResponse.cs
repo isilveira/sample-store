@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StoreAPI.Core.Application.Bases;
 
 namespace StoreAPI.Core.Application.Products.Commands.PutProduct
 {
-    public class PutProductCommandResponse
+    public class PutProductCommandResponse : CommandResponse<PutProductCommand, PutProductCommandResponseDTO>
     {
-        public PutProductCommand Request { get; set; }
-        public string Message { get; set; }
-        public PutProductCommandResponseDTO Data { get; set; }
     }
 }

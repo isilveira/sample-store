@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using StoreAPI.Core.Application.Interfaces;
+using StoreAPI.Core.Application.Interfaces.Contexts;
 using StoreAPI.Core.Domain.Entities;
 using StoreAPI.Core.Infrastructures.Data;
 using System;

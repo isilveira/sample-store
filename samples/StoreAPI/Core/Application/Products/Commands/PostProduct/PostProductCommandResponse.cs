@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StoreAPI.Core.Application.Bases;
 
 namespace StoreAPI.Core.Application.Products.Commands.PostProduct
 {
-    public class PostProductCommandResponse
+    public class PostProductCommandResponse : CommandResponse<PostProductCommand, PostProductCommandResponseDTO>
     {
-        public PostProductCommand Request { get; set; }
-        public string Message { get; set; }
-        public PostProductCommandResponseDTO Data { get; set; }
     }
 }

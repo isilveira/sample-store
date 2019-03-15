@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StoreAPI.Core.Application.Bases;
 
 namespace StoreAPI.Core.Application.Categories.Commands.PutCategory
 {
-    public class PutCategoryCommandResponse
+    public class PutCategoryCommandResponse : CommandResponse<PutCategoryCommand, PutCategoryCommandResponseDTO>
     {
-        public PutCategoryCommand Request { get; set; }
-        public string Message { get; set; }
-        public PutCategoryCommandResponseDTO Data { get; set; }
     }
 }

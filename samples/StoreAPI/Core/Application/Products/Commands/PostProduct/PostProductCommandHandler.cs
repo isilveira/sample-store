@@ -1,10 +1,7 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using StoreAPI.Core.Application.Interfaces;
+using StoreAPI.Core.Application.Interfaces.Contexts;
 using StoreAPI.Core.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,7 +9,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PostProduct
 {
     public class PostProductCommandHandler : IRequestHandler<PostProductCommand, PostProductCommandResponse>
     {
-        private IStoreContext Context { get;set; }
+        private IStoreContext Context { get; set; }
         public PostProductCommandHandler(IStoreContext context)
         {
             Context = context;
@@ -30,7 +27,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PostProduct
                 Amount = request.Amount,
                 IsVisible = request.IsVisible
             };
-            
+
             await Context.Products.AddAsync(data);
 
             await Context.SaveChangesAsync();

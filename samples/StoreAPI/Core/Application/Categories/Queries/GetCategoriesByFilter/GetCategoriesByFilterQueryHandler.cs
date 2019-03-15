@@ -1,8 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using StoreAPI.Core.Application.Interfaces;
-using System;
-using System.Collections.Generic;
+using StoreAPI.Core.Application.Interfaces.Contexts;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +16,7 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoriesByFilter
         }
         public async Task<GetCategoriesByFilterQueryResponse> Handle(GetCategoriesByFilterQuery request, CancellationToken cancellationToken)
         {
-            int resultCount = await Context.Categories.CountAsync(); 
+            int resultCount = await Context.Categories.CountAsync();
             var results = await Context.Categories.ToListAsync();
 
             return new GetCategoriesByFilterQueryResponse

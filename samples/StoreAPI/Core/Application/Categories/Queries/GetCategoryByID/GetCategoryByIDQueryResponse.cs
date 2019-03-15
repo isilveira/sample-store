@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StoreAPI.Core.Application.Bases;
 
 namespace StoreAPI.Core.Application.Categories.Queries.GetCategoryByID
 {
-    public class GetCategoryByIDQueryResponse
+    public class GetCategoryByIDQueryResponse : QueryResponse<GetCategoryByIDQuery, GetCategoryByIDQueryResponseDTO>
     {
-        public GetCategoryByIDQuery Request { get; set; }
-        public GetCategoryByIDQueryResponseDTO Data { get; set; }
     }
 }

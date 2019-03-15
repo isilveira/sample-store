@@ -1,9 +1,8 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using StoreAPI.Core.Application.Interfaces;
+using StoreAPI.Core.Application.Interfaces.Contexts;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,7 +10,7 @@ namespace StoreAPI.Core.Application.Products.Commands.DeleteProduct
 {
     public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, DeleteProductCommandResponse>
     {
-        private IStoreContext Context { get;set; }
+        private IStoreContext Context { get; set; }
         public DeleteProductCommandHandler(IStoreContext context)
         {
             Context = context;
@@ -21,7 +20,9 @@ namespace StoreAPI.Core.Application.Products.Commands.DeleteProduct
             var data = await Context.Products.SingleOrDefaultAsync(x => x.ProductID == request.ProductID);
 
             if (data == null)
+            {
                 throw new Exception("Product not found!");
+            }
 
             Context.Products.Remove(data);
 

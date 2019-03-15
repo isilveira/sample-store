@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace StoreAPI.Core.Application.Interfaces
+namespace StoreAPI.Core.Application.Interfaces.Contexts
 {
     public interface IStoreContext
     {

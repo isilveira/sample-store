@@ -1,9 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using StoreAPI.Core.Application.Interfaces;
+using StoreAPI.Core.Application.Interfaces.Contexts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,10 +19,13 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoryByID
             var data = await Context.Categories.SingleOrDefaultAsync(x => x.CategoryID == request.CategoryID);
 
             if (data == null)
+            {
                 throw new Exception("Category not found!");
+            }
 
             return new GetCategoryByIDQueryResponse
             {
+                ResultCount = 1,
                 Request = request,
                 Data = new GetCategoryByIDQueryResponseDTO
                 {

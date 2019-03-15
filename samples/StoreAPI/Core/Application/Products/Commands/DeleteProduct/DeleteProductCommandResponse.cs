@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StoreAPI.Core.Application.Bases;
 
 namespace StoreAPI.Core.Application.Products.Commands.DeleteProduct
 {
-    public class DeleteProductCommandResponse
+    public class DeleteProductCommandResponse : CommandResponse<DeleteProductCommand, DeleteProductCommandResponseDTO>
     {
-        public DeleteProductCommand Request { get; set; }
-        public string Message { get; set; }
-        public DeleteProductCommandResponseDTO Data { get; set; }
     }
 }
