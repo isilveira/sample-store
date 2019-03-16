@@ -2,7 +2,7 @@
 
 namespace StoreAPI.Core.Application.Bases
 {
-    public class CommandResponse<TResponse, TDTO> : Response<TResponse, TDTO>, ICommandResponse<TResponse, TDTO>
+    public class CommandResponse<TRequest, TDTO> : Response<TRequest, TDTO>, ICommandResponse<TRequest, TDTO>
     {
         public string Message { get; set; }
     }
