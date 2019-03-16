@@ -53,15 +53,15 @@ namespace StoreAPI
 
             SeedStoreContextAsync(context).Wait();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
 
         private async Task SeedStoreContextAsync(IStoreContext context)
         {
-            await SeedCategoryAsync(context, 50);
-            await SeedProductsAsync(context, 1_000);
-            await SeedConstumersAsync(context, 500);
+            await SeedCategoryAsync(context, 5000);
+            await SeedProductsAsync(context, 100_000);
+            await SeedConstumersAsync(context, 50_000);
             await SeedOrders(context);
         }
 
@@ -76,7 +76,7 @@ namespace StoreAPI
 
             var custumers = await context.Customers.ToListAsync();
 
-            foreach(var customer in custumers)
+            foreach (var customer in custumers)
             {
                 if (chance.Bool())
                 {
@@ -127,10 +127,10 @@ namespace StoreAPI
         private async Task SeedCategoryAsync(IStoreContext context, int inserts)
         {
             Chance chance = new Chance();
-
-            while (context.Categories.Count() < inserts)
+            int categoriesCount = context.Categories.Count();
+            while (categoriesCount < inserts)
             {
-                for (int i = context.Categories.Count(); i < inserts; i++)
+                for (int i = categoriesCount; i < inserts; i++)
                 {
                     var category = new Category
                     {
@@ -141,20 +141,23 @@ namespace StoreAPI
 
                     await context.Categories.AddAsync(category);
 
+                    await context.SaveChangesAsync();
+
                     chance = chance.New();
                 }
 
-                await context.SaveChangesAsync();
+                categoriesCount = context.Categories.Count();
             }
         }
 
         private async Task SeedProductsAsync(IStoreContext context, int inserts)
         {
             Chance chance = new Chance();
-
-            while (context.Products.Count() < inserts)
+            int productsCount = context.Products.Count();
+            while (productsCount < inserts)
             {
-                for (int i = context.Products.Count(); i < inserts; i++)
+                int saveCounter = 0;
+                for (int i = productsCount; i < inserts; i++)
                 {
                     var product = new Product
                     {
@@ -179,21 +182,33 @@ namespace StoreAPI
                     }
 
                     await context.Products.AddAsync(product);
+                    saveCounter++;
+
+                    if (saveCounter == 10000)
+                    {
+                        await context.SaveChangesAsync();
+                        saveCounter = 0;
+                    }
 
                     chance = chance.New();
                 }
+                if (saveCounter > 0)
+                {
+                    await context.SaveChangesAsync();
+                }
 
-                await context.SaveChangesAsync();
+                productsCount = context.Products.Count();
             }
         }
 
         private async Task SeedConstumersAsync(IStoreContext context, int inserts)
         {
             Chance chance = new Chance();
-
-            while (context.Customers.Count() < inserts)
+            int customersCount = context.Customers.Count();
+            while (customersCount < inserts)
             {
-                for (int i = context.Customers.Count(); i < inserts; i++)
+                int saveCounter = 0;
+                for (int i = customersCount; i < inserts; i++)
                 {
                     var customer = new Customer
                     {
@@ -203,11 +218,22 @@ namespace StoreAPI
                     };
 
                     await context.Customers.AddAsync(customer);
+                    saveCounter++;
+                    if (saveCounter == 10000)
+                    {
+                        await context.SaveChangesAsync();
+                        saveCounter = 0;
+                    }
 
                     chance = chance.New();
                 }
 
-                await context.SaveChangesAsync();
+                if (saveCounter > 0)
+                {
+                    await context.SaveChangesAsync();
+                }
+
+                customersCount = context.Customers.Count();
             }
         }
     }
