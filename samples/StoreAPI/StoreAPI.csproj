@@ -14,13 +14,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Core\Application\OrderedProducts\Commands\DeleteOrderedProduct\" />
-    <Folder Include="Core\Application\OrderedProducts\Commands\PutOrderedProduct\" />
-    <Folder Include="Core\Application\OrderedProducts\Commands\PostOrderedProduct\" />
-    <Folder Include="Core\Application\OrderedProducts\Commands\PatchOrderedProduct\" />
-    <Folder Include="Core\Application\OrderedProducts\Queries\GetOrderedProductsByFilter\" />
-    <Folder Include="Core\Application\OrderedProducts\Queries\GetOrderedProductByID\" />
-  </ItemGroup>
-
 </Project>
