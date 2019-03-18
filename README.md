@@ -1,2 +1,6 @@
 # sample-store
-Sample project of an online store
+Sample project to use in implementations of future Libraries and Concepts.
+
+RESTFul + CQRS
+
+WebAPI + MediatR + EntityFrameworkCore
