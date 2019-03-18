@@ -16,8 +16,25 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoriesByFilter
         }
         public async Task<GetCategoriesByFilterQueryResponse> Handle(GetCategoriesByFilterQuery request, CancellationToken cancellationToken)
         {
-            int resultCount = await Context.Categories.CountAsync();
-            var results = await Context.Categories.ToListAsync();
+            var query = Context.Categories.AsQueryable();
+
+            if (request.RootCategoryID.HasValue)
+            {
+                query = query.Where(x => x.RootCategoryID == request.RootCategoryID.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.Name))
+            {
+                query = query.Where(x => x.Name.Contains(request.Name));
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.Description))
+            {
+                query = query.Where(x => x.Description.Contains(request.Description));
+            }
+
+            int resultCount = await query.CountAsync();
+            var results = await query.ToListAsync();
 
             return new GetCategoriesByFilterQueryResponse
             {

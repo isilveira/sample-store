@@ -18,8 +18,25 @@ namespace StoreAPI.Core.Application.Customers.Queries.GetCustomersByFilter
         }
         public async Task<GetCustomersByFilterQueryResponse> Handle(GetCustomersByFilterQuery request, CancellationToken cancellationToken)
         {
-            int resultCount = await Context.Customers.CountAsync();
-            var results = await Context.Customers.ToListAsync();
+            var query = Context.Customers.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(request.Name))
+            {
+                query = query.Where(x => x.Name.Contains(request.Name));
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.Email))
+            {
+                query = query.Where(x => x.Email.Contains(request.Email));
+            }
+
+            if (request.RegistrationDate.HasValue)
+            {
+                query = query.Where(x => x.RegistrationDate == request.RegistrationDate.Value);
+            }
+
+            int resultCount = await query.CountAsync();
+            var results = await query.ToListAsync();
 
             return new GetCustomersByFilterQueryResponse
             {

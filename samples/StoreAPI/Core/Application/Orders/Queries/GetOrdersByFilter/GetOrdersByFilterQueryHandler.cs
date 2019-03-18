@@ -16,8 +16,30 @@ namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
         }
         public async Task<GetOrdersByFilterQueryResponse> Handle(GetOrdersByFilterQuery request, CancellationToken cancellationToken)
         {
-            int resultCount = await Context.Orders.CountAsync();
-            var results = await Context.Orders.ToListAsync();
+            var query = Context.Orders.AsQueryable();
+
+            if (request.CustomerID.HasValue)
+            {
+                query = query.Where(x => x.CustomerID == request.CustomerID.Value);
+            }
+
+            if (request.RegistrationDate.HasValue)
+            {
+                query = query.Where(x => x.RegistrationDate == request.RegistrationDate.Value);
+            }
+
+            if (request.CancellationDate.HasValue)
+            {
+                query = query.Where(x => x.CancellationDate == request.CancellationDate.Value);
+            }
+
+            if (request.ConfirmationDate.HasValue)
+            {
+                query = query.Where(x => x.ConfirmationDate == request.ConfirmationDate.Value);
+            }
+
+            int resultCount = await query.CountAsync();
+            var results = await query.ToListAsync();
 
             return new GetOrdersByFilterQueryResponse
             {

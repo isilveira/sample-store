@@ -16,8 +16,35 @@ namespace StoreAPI.Core.Application.OrderedProducts.Queries.GetOrderedProductsBy
         }
         public async Task<GetOrderedProductsByFilterQueryResponse> Handle(GetOrderedProductsByFilterQuery request, CancellationToken cancellationToken)
         {
-            int resultCount = await Context.OrderedProducts.CountAsync();
-            var results = await Context.OrderedProducts.ToListAsync();
+            var query = Context.OrderedProducts.AsQueryable();
+
+            if (request.OrderID.HasValue)
+            {
+                query = query.Where(x => x.OrderID == request.OrderID.Value);
+            }
+
+            if (request.ProductID.HasValue)
+            {
+                query = query.Where(x => x.ProductID == request.ProductID.Value);
+            }
+
+            if (request.Amount.HasValue)
+            {
+                query = query.Where(x => x.Amount == request.Amount.Value);
+            }
+
+            if (request.Value.HasValue)
+            {
+                query = query.Where(x => x.Value == request.Value.Value);
+            }
+
+            if (request.RegistrationDate.HasValue)
+            {
+                query = query.Where(x => x.RegistrationDate == request.RegistrationDate.Value);
+            }
+
+            int resultCount = await query.CountAsync();
+            var results = await query.ToListAsync();
 
             return new GetOrderedProductsByFilterQueryResponse
             {

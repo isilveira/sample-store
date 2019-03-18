@@ -18,9 +18,26 @@ namespace StoreAPI.Core.Application.Images.Queries.GetImagesByFilter
         }
         public async Task<GetImagesByFilterQueryResponse> Handle(GetImagesByFilterQuery request, CancellationToken cancellationToken)
         {
-            int resultCount = await Context.Images.CountAsync();
+            var query = Context.Images.AsQueryable();
 
-            var results = await Context.Images.ToListAsync(cancellationToken);
+            if (request.ProductID.HasValue)
+            {
+                query = query.Where(x => x.ProductID == request.ProductID.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.MimeType))
+            {
+                query = query.Where(x => x.MimeType.Contains(request.MimeType));
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.Url))
+            {
+                query = query.Where(x => x.Url.Contains(request.Url));
+            }
+
+            int resultCount = await query.CountAsync();
+
+            var results = await query.ToListAsync(cancellationToken);
 
             return new GetImagesByFilterQueryResponse
             {
