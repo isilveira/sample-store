@@ -24,7 +24,6 @@ namespace StoreAPI.Core.Application.Orders.Commands.PutOrder
             }
 
             data.CustomerID = request.CustomerID;
-            data.RegistrationDate = request.RegistrationDate;
             data.ConfirmationDate = request.ConfirmationDate;
             data.CancellationDate = request.CancellationDate;
 

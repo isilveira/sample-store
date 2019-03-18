@@ -22,7 +22,7 @@ namespace StoreAPI.Core.Application.OrderedProducts.Commands.PostOrderedProduct
                 ProductID = request.ProductID,
                 Amount = request.Amount,
                 Value = request.Value,
-                RegistrationDate = request.RegistrationDate
+                RegistrationDate = DateTime.UtcNow
             };
 
             await Context.OrderedProducts.AddAsync(data);

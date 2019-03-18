@@ -10,7 +10,5 @@ namespace StoreAPI.Core.Application.OrderedProducts.Commands.PostOrderedProduct
 
         public int Amount { get; set; }
         public decimal Value { get; set; }
-
-        public DateTime RegistrationDate { get; set; }
     }
 }

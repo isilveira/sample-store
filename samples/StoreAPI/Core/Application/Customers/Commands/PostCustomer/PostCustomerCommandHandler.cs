@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using StoreAPI.Core.Application.Interfaces.Contexts;
@@ -18,7 +19,8 @@ namespace StoreAPI.Core.Application.Customers.Commands.PostCustomer
             var data = new Customer
             {
                 Name = request.Name,
-                Email = request.Email
+                Email = request.Email,
+                RegistrationDate = DateTime.UtcNow
             };
 
             await Context.Customers.AddAsync(data);

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using StoreAPI.Core.Application.Interfaces.Contexts;
 using StoreAPI.Core.Domain.Entities;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,9 +19,7 @@ namespace StoreAPI.Core.Application.Orders.Commands.PostOrder
             var data = new Order
             {
                 CustomerID = request.CustomerID,
-                RegistrationDate = request.RegistrationDate,
-                ConfirmationDate = request.ConfirmationDate,
-                CancellationDate = request.CancellationDate
+                RegistrationDate = DateTime.UtcNow
             };
 
             await Context.Orders.AddAsync(data);

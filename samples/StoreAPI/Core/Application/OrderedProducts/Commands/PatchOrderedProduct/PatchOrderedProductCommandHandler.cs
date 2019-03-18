@@ -43,11 +43,6 @@ namespace StoreAPI.Core.Application.OrderedProducts.Commands.PatchOrderedProduct
                 data.Value = request.Value.Value;
             }
 
-            if (request.RegistrationDate.HasValue)
-            {
-                data.RegistrationDate = request.RegistrationDate.Value;
-            }
-
             await Context.SaveChangesAsync();
 
             return new PatchOrderedProductCommandResponse

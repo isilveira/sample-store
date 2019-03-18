@@ -27,11 +27,6 @@ namespace StoreAPI.Core.Application.Orders.Commands.PatchOrder
             {
                 data.CustomerID = request.CustomerID.Value;
             }
-
-            if (request.RegistrationDate.HasValue)
-            {
-                data.RegistrationDate = request.RegistrationDate.Value;
-            }
             if (request.ConfirmationDate.HasValue)
             {
                 data.ConfirmationDate = request.ConfirmationDate.Value;

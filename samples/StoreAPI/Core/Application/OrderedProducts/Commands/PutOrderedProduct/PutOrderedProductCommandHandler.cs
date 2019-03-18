@@ -27,7 +27,6 @@ namespace StoreAPI.Core.Application.OrderedProducts.Commands.PutOrderedProduct
             data.ProductID = request.ProductID;
             data.Amount = request.Amount;
             data.Value = request.Value;
-            data.RegistrationDate = request.RegistrationDate;
 
             await Context.SaveChangesAsync();
 
