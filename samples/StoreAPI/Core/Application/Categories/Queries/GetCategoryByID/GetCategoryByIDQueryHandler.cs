@@ -16,7 +16,7 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoryByID
         }
         public async Task<GetCategoryByIDQueryResponse> Handle(GetCategoryByIDQuery request, CancellationToken cancellationToken)
         {
-            var data = await Context.Categories.SingleOrDefaultAsync(x => x.CategoryID == request.CategoryID);
+            var data = await Context.Categories.AsNoTracking().SingleOrDefaultAsync(x => x.CategoryID == request.CategoryID);
 
             if (data == null)
             {

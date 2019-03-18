@@ -16,7 +16,7 @@ namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
         }
         public async Task<GetOrdersByFilterQueryResponse> Handle(GetOrdersByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Orders.AsQueryable();
+            var query = Context.Orders.AsQueryable().AsNoTracking();
 
             if (request.CustomerID.HasValue)
             {

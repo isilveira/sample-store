@@ -16,7 +16,7 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductByID
         }
         public async Task<GetProductByIDQueryResponse> Handle(GetProductByIDQuery request, CancellationToken cancellationToken)
         {
-            var data = await Context.Products.SingleOrDefaultAsync(x => x.ProductID == request.ProductID);
+            var data = await Context.Products.AsNoTracking().SingleOrDefaultAsync(x => x.ProductID == request.ProductID);
 
             if (data == null)
             {

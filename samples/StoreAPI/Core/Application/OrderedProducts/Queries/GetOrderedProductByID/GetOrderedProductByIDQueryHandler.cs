@@ -16,7 +16,7 @@ namespace StoreAPI.Core.Application.OrderedProducts.Queries.GetOrderedProductByI
         }
         public async Task<GetOrderedProductByIDQueryResponse> Handle(GetOrderedProductByIDQuery request, CancellationToken cancellationToken)
         {
-            var data = await Context.OrderedProducts.SingleOrDefaultAsync(x => x.OrderedProductID== request.OrderedProductID);
+            var data = await Context.OrderedProducts.AsNoTracking().SingleOrDefaultAsync(x => x.OrderedProductID== request.OrderedProductID);
 
             if (data == null)
             {

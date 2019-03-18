@@ -18,7 +18,7 @@ namespace StoreAPI.Core.Application.Images.Queries.GetImagesByFilter
         }
         public async Task<GetImagesByFilterQueryResponse> Handle(GetImagesByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Images.AsQueryable();
+            var query = Context.Images.AsQueryable().AsNoTracking();
 
             if (request.ProductID.HasValue)
             {

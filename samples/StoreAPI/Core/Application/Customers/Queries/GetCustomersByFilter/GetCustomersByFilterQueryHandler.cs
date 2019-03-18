@@ -18,7 +18,7 @@ namespace StoreAPI.Core.Application.Customers.Queries.GetCustomersByFilter
         }
         public async Task<GetCustomersByFilterQueryResponse> Handle(GetCustomersByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Customers.AsQueryable();
+            var query = Context.Customers.AsQueryable().AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(request.Name))
             {

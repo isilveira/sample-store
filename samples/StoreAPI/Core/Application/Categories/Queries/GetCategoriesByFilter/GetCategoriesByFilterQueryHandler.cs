@@ -16,7 +16,7 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoriesByFilter
         }
         public async Task<GetCategoriesByFilterQueryResponse> Handle(GetCategoriesByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Categories.AsQueryable();
+            var query = Context.Categories.AsQueryable().AsNoTracking();
 
             if (request.RootCategoryID.HasValue)
             {

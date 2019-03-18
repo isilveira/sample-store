@@ -16,7 +16,7 @@ namespace StoreAPI.Core.Application.Customers.Queries.GetCustomerByID
         }
         public async Task<GetCustomerByIDQueryResponse> Handle(GetCustomerByIDQuery request, CancellationToken cancellationToken)
         {
-            var data = await Context.Customers.SingleOrDefaultAsync(x => x.CustomerID == request.CustomerID);
+            var data = await Context.Customers.AsNoTracking().SingleOrDefaultAsync(x => x.CustomerID == request.CustomerID);
 
             if (data == null)
             {

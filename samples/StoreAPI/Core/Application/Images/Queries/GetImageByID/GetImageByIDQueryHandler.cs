@@ -16,7 +16,7 @@ namespace StoreAPI.Core.Application.Images.Queries.GetImageByID
         }
         public async Task<GetImageByIDQueryResponse> Handle(GetImageByIDQuery request, CancellationToken cancellationToken)
         {
-            var data = await Context.Images.SingleOrDefaultAsync(x => x.ImageID == request.ImageID);
+            var data = await Context.Images.AsNoTracking().SingleOrDefaultAsync(x => x.ImageID == request.ImageID);
 
             if (data == null)
             {
