@@ -16,34 +16,22 @@ namespace StoreAPI.Core.Application.Images.Commands.PatchImage
         }
         public async Task<PatchImageCommandResponse> Handle(PatchImageCommand request, CancellationToken cancellationToken)
         {
-            var data = await Context.Images.SingleOrDefaultAsync(x => x.ImageID == request.ImageID);
+            var id = request.Project(x => x.ImageID);
+            var data = await Context.Images.SingleOrDefaultAsync(x => x.ImageID == id);
 
             if (data == null)
             {
                 throw new Exception("Image not found!");
             }
 
-            if (!string.IsNullOrWhiteSpace(request.MimeType))
-            {
-                data.MimeType = request.MimeType;
-            }
-
-            if (!string.IsNullOrWhiteSpace(request.Url))
-            {
-                data.Url = request.Url;
-            }
-
-            if (request.ProductID.HasValue)
-            {
-                data.ProductID = request.ProductID.Value;
-            }
+            request.Patch(data);
 
             await Context.SaveChangesAsync();
 
             return new PatchImageCommandResponse
             {
                 Message = "Successful operation!",
-                Request = request,
+                Request = request.AsDictionary(ModelWrapper.EnumProperties.OnlySupplieds),
                 Data = new PatchImageCommandResponseDTO
                 {
                     ImageID = data.ImageID,

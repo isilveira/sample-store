@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ModelWrapper;
 
 namespace StoreAPI
 {
@@ -29,6 +30,7 @@ namespace StoreAPI
         public void ConfigureServices(IServiceCollection services)
         {
             var assembly = AppDomain.CurrentDomain.Load("StoreAPI");
+            //var modelWrapperAssembly = AppDomain.CurrentDomain.Load("ModelWrapper");
 
             services.AddMediatR(assembly);
 
@@ -59,9 +61,9 @@ namespace StoreAPI
 
         private async Task SeedStoreContextAsync(IStoreContext context)
         {
-            await SeedCategoryAsync(context, 5000);
-            await SeedProductsAsync(context, 100_000);
-            await SeedConstumersAsync(context, 50_000);
+            await SeedCategoryAsync(context, 50);
+            await SeedProductsAsync(context, 1_000);
+            await SeedConstumersAsync(context, 500);
             await SeedOrders(context);
         }
 

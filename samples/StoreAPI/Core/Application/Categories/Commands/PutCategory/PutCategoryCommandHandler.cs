@@ -16,23 +16,22 @@ namespace StoreAPI.Core.Application.Categories.Commands.PutCategory
         }
         public async Task<PutCategoryCommandResponse> Handle(PutCategoryCommand request, CancellationToken cancellationToken)
         {
-            var data = await Context.Categories.SingleOrDefaultAsync(x => x.CategoryID == request.CategoryID);
+            var id = request.Project(x => x.CategoryID);
+            var data = await Context.Categories.SingleOrDefaultAsync(x => x.CategoryID == id);
 
             if (data == null)
             {
                 throw new Exception("Category not found!");
             }
 
-            data.RootCategoryID = request.RootCategoryID;
-            data.Name = request.Name;
-            data.Description = request.Description;
+            request.Put(data);
 
             await Context.SaveChangesAsync();
 
             return new PutCategoryCommandResponse
             {
-                Request = request,
                 Message = "Successful operation!",
+                Request = request.AsDictionary(),
                 Data = new PutCategoryCommandResponseDTO
                 {
                     CategoryID = data.CategoryID,

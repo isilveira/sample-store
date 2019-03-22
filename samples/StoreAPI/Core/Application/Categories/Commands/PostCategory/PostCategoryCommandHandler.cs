@@ -15,21 +15,16 @@ namespace StoreAPI.Core.Application.Categories.Commands.PostCategory
         }
         public async Task<PostCategoryCommandResponse> Handle(PostCategoryCommand request, CancellationToken cancellationToken)
         {
-            var data = new Category
-            {
-                RootCategoryID = request.RootCategoryID,
-                Name = request.Name,
-                Description = request.Description,
-            };
-
+            var data = request.Post();
+            
             await Context.Categories.AddAsync(data);
 
             await Context.SaveChangesAsync();
 
             return new PostCategoryCommandResponse
             {
-                Request = request,
                 Message = "Successful operation!",
+                Request = request.AsDictionary(ModelWrapper.EnumProperties.AllWithoutKeys),
                 Data = new PostCategoryCommandResponseDTO
                 {
                     CategoryID = data.CategoryID,

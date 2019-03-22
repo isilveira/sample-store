@@ -1,15 +1,18 @@
 ﻿using MediatR;
+using ModelWrapper;
+using StoreAPI.Core.Domain.Entities;
 using System;
 
 namespace StoreAPI.Core.Application.OrderedProducts.Commands.PutOrderedProduct
 {
-    public class PutOrderedProductCommand : IRequest<PutOrderedProductCommandResponse>
+    public class PutOrderedProductCommand : Wrap<OrderedProduct>, IRequest<PutOrderedProductCommandResponse>
     {
-        public int OrderedProductID { get; set; }
-        public int OrderID { get; set; }
-        public int ProductID { get; set; }
-
-        public int Amount { get; set; }
-        public decimal Value { get; set; }
+        public PutOrderedProductCommand()
+        {
+            KeyProperty(x => x.OrderedProductID);
+            SuppressProperty(x => x.RegistrationDate);
+            SuppressProperty(x => x.Order);
+            SuppressProperty(x => x.Product);
+        }
     }
 }

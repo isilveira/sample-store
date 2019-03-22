@@ -16,26 +16,18 @@ namespace StoreAPI.Core.Application.Products.Commands.PostProduct
         }
         public async Task<PostProductCommandResponse> Handle(PostProductCommand request, CancellationToken cancellationToken)
         {
-            var data = new Product
-            {
-                CategoryID = request.CategoryID,
-                Name = request.Name,
-                Description = request.Description,
-                Specifications = request.Specifications,
-                RegistrationDate = DateTime.UtcNow,
-                Value = request.Value,
-                Amount = request.Amount,
-                IsVisible = request.IsVisible
-            };
+            var data = request.Post();
 
             await Context.Products.AddAsync(data);
+
+            data.RegistrationDate = DateTime.UtcNow;
 
             await Context.SaveChangesAsync();
 
             return new PostProductCommandResponse
             {
-                Request = request,
                 Message = "Successful operation!",
+                Request = request.AsDictionary(ModelWrapper.EnumProperties.AllWithoutKeys),
                 Data = new PostProductCommandResponseDTO
                 {
                     ProductID = data.ProductID,

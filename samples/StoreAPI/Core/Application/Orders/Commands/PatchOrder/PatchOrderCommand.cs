@@ -1,14 +1,18 @@
 ﻿using MediatR;
+using ModelWrapper;
+using StoreAPI.Core.Domain.Entities;
 using System;
 
 namespace StoreAPI.Core.Application.Orders.Commands.PatchOrder
 {
-    public class PatchOrderCommand : IRequest<PatchOrderCommandResponse>
+    public class PatchOrderCommand : Wrap<Order>, IRequest<PatchOrderCommandResponse>
     {
-        public int OrderID { get; set; }
-        public int? CustomerID { get; set; }
-
-        public DateTime? ConfirmationDate { get; set; }
-        public DateTime? CancellationDate { get; set; }
+        public PatchOrderCommand()
+        {
+            KeyProperty(x => x.OrderID);
+            SuppressProperty(x => x.RegistrationDate);
+            SuppressProperty(x => x.OrderedProducts);
+            SuppressProperty(x => x.Customer);
+        }
     }
 }

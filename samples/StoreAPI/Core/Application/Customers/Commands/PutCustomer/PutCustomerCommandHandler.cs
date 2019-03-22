@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Contexts;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace StoreAPI.Core.Application.Customers.Commands.PutCustomer
 {
@@ -16,21 +16,21 @@ namespace StoreAPI.Core.Application.Customers.Commands.PutCustomer
         }
         public async Task<PutCustomerCommandResponse> Handle(PutCustomerCommand request, CancellationToken cancellationToken)
         {
-            var data = await Context.Customers.SingleOrDefaultAsync(x => x.CustomerID== request.CustomerID);
+            var id = request.Project(x => x.CustomerID);
+            var data = await Context.Customers.SingleOrDefaultAsync(x => x.CustomerID == id);
 
             if (data == null)
             {
                 throw new Exception("Customer not found!");
             }
 
-            data.Name = request.Name;
-            data.Email = request.Email;
+            request.Put(data);
 
             await Context.SaveChangesAsync();
 
             return new PutCustomerCommandResponse
             {
-                Request = request,
+                Request = request.AsDictionary(),
                 Message = "Successful operation!",
                 Data = new PutCustomerCommandResponseDTO
                 {
