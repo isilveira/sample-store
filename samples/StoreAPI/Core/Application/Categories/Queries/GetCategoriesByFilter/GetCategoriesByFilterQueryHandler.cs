@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using EntitySearch.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Contexts;
 using System.Linq;
@@ -16,26 +17,16 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoriesByFilter
         }
         public async Task<GetCategoriesByFilterQueryResponse> Handle(GetCategoriesByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Categories.AsQueryable().AsNoTracking();
-
-            if (request.RootCategoryID.HasValue)
-            {
-                query = query.Where(x => x.RootCategoryID == request.RootCategoryID.Value);
-            }
-
-            if (!string.IsNullOrWhiteSpace(request.Name))
-            {
-                query = query.Where(x => x.Name.Contains(request.Name));
-            }
-
-            if (!string.IsNullOrWhiteSpace(request.Description))
-            {
-                query = query.Where(x => x.Description.Contains(request.Description));
-            }
-
-            int resultCount = await query.CountAsync();
-            var results = await query.ToListAsync();
-
+            int resultCount = 0;
+            var results =  await Context.Categories
+                .Filter(request)
+                .Search(request)
+                .Count(ref resultCount)
+                .OrderBy(request)
+                .Scope(request)
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
+            
             return new GetCategoriesByFilterQueryResponse
             {
                 Request = request,

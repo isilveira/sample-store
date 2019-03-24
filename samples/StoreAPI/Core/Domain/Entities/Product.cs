@@ -21,6 +21,6 @@ namespace StoreAPI.Core.Domain.Entities
 
         public List<Image> Images { get; set; }
         public Category Category { get; set; }
-        //public List<OrderedProduct> OrderedProducts { get; set; }
+        public List<OrderedProduct> OrderedProducts { get; set; }
     }
 }

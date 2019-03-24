@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using EntitySearch.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Contexts;
 using System;
@@ -18,26 +19,16 @@ namespace StoreAPI.Core.Application.Images.Queries.GetImagesByFilter
         }
         public async Task<GetImagesByFilterQueryResponse> Handle(GetImagesByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Images.AsQueryable().AsNoTracking();
+            int resultCount = 0;
 
-            if (request.ProductID.HasValue)
-            {
-                query = query.Where(x => x.ProductID == request.ProductID.Value);
-            }
-
-            if (!string.IsNullOrWhiteSpace(request.MimeType))
-            {
-                query = query.Where(x => x.MimeType.Contains(request.MimeType));
-            }
-
-            if (!string.IsNullOrWhiteSpace(request.Url))
-            {
-                query = query.Where(x => x.Url.Contains(request.Url));
-            }
-
-            int resultCount = await query.CountAsync();
-
-            var results = await query.ToListAsync(cancellationToken);
+            var results = await Context.Images
+                .Filter(request)
+                .Search(request)
+                .Count(ref resultCount)
+                .OrderBy(request)
+                .Scope(request)
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
 
             return new GetImagesByFilterQueryResponse
             {

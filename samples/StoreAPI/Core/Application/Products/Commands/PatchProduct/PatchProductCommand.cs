@@ -16,6 +16,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PatchProduct
             SuppressProperty(x => x.RegistrationDate);
             SuppressProperty(x => x.Category);
             SuppressProperty(x => x.Images);
+            SuppressProperty(x => x.OrderedProducts);
         }
     }
 }

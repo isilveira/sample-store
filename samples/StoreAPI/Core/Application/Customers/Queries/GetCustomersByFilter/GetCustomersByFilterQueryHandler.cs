@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using EntitySearch.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Contexts;
 using System;
@@ -18,25 +19,15 @@ namespace StoreAPI.Core.Application.Customers.Queries.GetCustomersByFilter
         }
         public async Task<GetCustomersByFilterQueryResponse> Handle(GetCustomersByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Customers.AsQueryable().AsNoTracking();
-
-            if (!string.IsNullOrWhiteSpace(request.Name))
-            {
-                query = query.Where(x => x.Name.Contains(request.Name));
-            }
-
-            if (!string.IsNullOrWhiteSpace(request.Email))
-            {
-                query = query.Where(x => x.Email.Contains(request.Email));
-            }
-
-            if (request.RegistrationDate.HasValue)
-            {
-                query = query.Where(x => x.RegistrationDate == request.RegistrationDate.Value);
-            }
-
-            int resultCount = await query.CountAsync();
-            var results = await query.ToListAsync();
+            int resultCount = 0;
+            var results = await Context.Customers
+                .Filter(request)
+                .Search(request)
+                .Count(ref resultCount)
+                .OrderBy(request)
+                .Scope(request)
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
 
             return new GetCustomersByFilterQueryResponse
             {

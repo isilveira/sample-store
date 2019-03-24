@@ -1,16 +1,16 @@
-﻿using MediatR;
+﻿using EntitySearch;
+using MediatR;
+using StoreAPI.Core.Domain.Entities;
 using System;
 
 namespace StoreAPI.Core.Application.OrderedProducts.Queries.GetOrderedProductsByFilter
 {
-    public class GetOrderedProductsByFilterQuery : IRequest<GetOrderedProductsByFilterQueryResponse>
+    public class GetOrderedProductsByFilterQuery : EntitySearch<OrderedProduct>, IRequest<GetOrderedProductsByFilterQueryResponse>
     {
-        public int? OrderID { get; set; }
-        public int? ProductID { get; set; }
-
-        public int? Amount { get; set; }
-        public decimal? Value { get; set; }
-
-        public DateTime? RegistrationDate { get; set; }
+        public GetOrderedProductsByFilterQuery()
+        {
+            SetRestrictProperty(x => x.Product);
+            SetRestrictProperty(x => x.Order);
+        }
     }
 }

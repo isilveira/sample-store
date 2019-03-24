@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using EntitySearch.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Contexts;
 using System.Linq;
@@ -16,35 +17,15 @@ namespace StoreAPI.Core.Application.OrderedProducts.Queries.GetOrderedProductsBy
         }
         public async Task<GetOrderedProductsByFilterQueryResponse> Handle(GetOrderedProductsByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.OrderedProducts.AsQueryable().AsNoTracking();
-
-            if (request.OrderID.HasValue)
-            {
-                query = query.Where(x => x.OrderID == request.OrderID.Value);
-            }
-
-            if (request.ProductID.HasValue)
-            {
-                query = query.Where(x => x.ProductID == request.ProductID.Value);
-            }
-
-            if (request.Amount.HasValue)
-            {
-                query = query.Where(x => x.Amount == request.Amount.Value);
-            }
-
-            if (request.Value.HasValue)
-            {
-                query = query.Where(x => x.Value == request.Value.Value);
-            }
-
-            if (request.RegistrationDate.HasValue)
-            {
-                query = query.Where(x => x.RegistrationDate == request.RegistrationDate.Value);
-            }
-
-            int resultCount = await query.CountAsync();
-            var results = await query.ToListAsync();
+            int resultCount = 0;
+            var results = await Context.OrderedProducts
+                .Filter(request)
+                .Search(request)
+                .Count(ref resultCount)
+                .OrderBy(request)
+                .Scope(request)
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
 
             return new GetOrderedProductsByFilterQueryResponse
             {

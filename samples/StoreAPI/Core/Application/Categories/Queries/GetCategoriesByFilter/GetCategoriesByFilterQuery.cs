@@ -1,15 +1,17 @@
-﻿using MediatR;
+﻿using EntitySearch;
+using MediatR;
+using StoreAPI.Core.Domain.Entities;
 
 namespace StoreAPI.Core.Application.Categories.Queries.GetCategoriesByFilter
 {
-    public class GetCategoriesByFilterQuery : IRequest<GetCategoriesByFilterQueryResponse>
+    public class GetCategoriesByFilterQuery : EntitySearch<Category>, IRequest<GetCategoriesByFilterQueryResponse>
     {
-        public int? RootCategoryID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-
         public GetCategoriesByFilterQuery()
         {
+            OrderBy = "CategoryID";
+            SetRestrictProperty(x => x.LeafCategories);
+            SetRestrictProperty(x => x.RootCategory);
+            SetRestrictProperty(x => x.Products);
         }
     }
 }

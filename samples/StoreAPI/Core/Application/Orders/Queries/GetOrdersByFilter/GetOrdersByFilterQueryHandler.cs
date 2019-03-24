@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EntitySearch.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Contexts;
@@ -16,30 +17,15 @@ namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
         }
         public async Task<GetOrdersByFilterQueryResponse> Handle(GetOrdersByFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = Context.Orders.AsQueryable().AsNoTracking();
-
-            if (request.CustomerID.HasValue)
-            {
-                query = query.Where(x => x.CustomerID == request.CustomerID.Value);
-            }
-
-            if (request.RegistrationDate.HasValue)
-            {
-                query = query.Where(x => x.RegistrationDate == request.RegistrationDate.Value);
-            }
-
-            if (request.CancellationDate.HasValue)
-            {
-                query = query.Where(x => x.CancellationDate == request.CancellationDate.Value);
-            }
-
-            if (request.ConfirmationDate.HasValue)
-            {
-                query = query.Where(x => x.ConfirmationDate == request.ConfirmationDate.Value);
-            }
-
-            int resultCount = await query.CountAsync();
-            var results = await query.ToListAsync();
+            int resultCount = 0;
+            var results = await Context.Orders
+                .Filter(request)
+                .Search(request)
+                .Count(ref resultCount)
+                .OrderBy(request)
+                .Scope(request)
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
 
             return new GetOrdersByFilterQueryResponse
             {
