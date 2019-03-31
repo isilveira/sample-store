@@ -30,7 +30,11 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
         {
             Chance chance = new Chance();
 
-            if (await context.Orders.CountAsync() > 0)
+            var totalCustomers = await context.Customers.CountAsync();
+            var totalCustomersWithOrders = await context.Customers.Where(x=>x.Orders.Any()).CountAsync();
+            var totalCustomersWithoutOrders = await context.Customers.Where(x => !x.Orders.Any()).CountAsync();
+
+            if (totalCustomers / 2 < totalCustomersWithOrders)
             {
                 return;
             }
