@@ -83,6 +83,9 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
                     }
                     customer.Orders.Add(order);
                 }
+
+                await context.SaveChangesAsync();
+
                 chance = chance.New();
             }
 
@@ -149,7 +152,7 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
                     await context.Products.AddAsync(product);
                     saveCounter++;
 
-                    if (saveCounter == 10000)
+                    if (saveCounter == 1_000)
                     {
                         await context.SaveChangesAsync();
                         saveCounter = 0;
@@ -184,7 +187,7 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
 
                     await context.Customers.AddAsync(customer);
                     saveCounter++;
-                    if (saveCounter == 10000)
+                    if (saveCounter == 1_000)
                     {
                         await context.SaveChangesAsync();
                         saveCounter = 0;
