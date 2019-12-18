@@ -1,6 +1,7 @@
 ﻿using ChanceNET;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using StoreAPI.Core.Domain.Entities;
 using System;
@@ -17,6 +18,7 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
             var seedsMultiplier = configuration.GetSection("AppSettings").GetValue<int>("SeedsMultiplier");
             if (seedsMultiplier == 0)
             {
+                Log.Debug("Seed multiplier set 0, no seed.");
                 return;
             }
 
@@ -100,6 +102,8 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
 
         private static async Task SeedCategoryAsync(IStoreContext context, int inserts)
         {
+            Log.Debug($"Seed {inserts.ToString()} categories.");
+
             Chance chance = new Chance();
             int categoriesCount = context.Categories.Count();
             while (categoriesCount < inserts)
@@ -122,10 +126,14 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
 
                 categoriesCount = context.Categories.Count();
             }
+
+            Log.Debug("Done seed categories.");
         }
 
         private static async Task SeedProductsAsync(IStoreContext context, int inserts)
         {
+            Log.Debug($"Seed {inserts.ToString()} products.");
+
             Chance chance = new Chance();
             int productsCount = context.Products.Count();
             while (productsCount < inserts)
@@ -173,10 +181,14 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
 
                 productsCount = context.Products.Count();
             }
+
+            Log.Debug("Done seed products.");
         }
 
         private static async Task SeedConstumersAsync(IStoreContext context, int inserts)
         {
+            Log.Debug($"Seed {inserts.ToString()} customers.");
+
             Chance chance = new Chance();
             int customersCount = context.Customers.Count();
             while (customersCount < inserts)
@@ -209,6 +221,8 @@ namespace StoreAPI.Core.Infrastructures.Data.Seeds
 
                 customersCount = context.Customers.Count();
             }
+
+            Log.Debug("Done seed customers.");
         }
     }
 }

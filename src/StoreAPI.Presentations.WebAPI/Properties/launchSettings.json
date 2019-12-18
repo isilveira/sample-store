@@ -11,6 +11,7 @@
   "profiles": {
     "SampleStore": {
       "commandName": "Project",
+      "commandLineArgs": "/seed",
       "launchBrowser": true,
       "launchUrl": "api/products",
       "environmentVariables": {
