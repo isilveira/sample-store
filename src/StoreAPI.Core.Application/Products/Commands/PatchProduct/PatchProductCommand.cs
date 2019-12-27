@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PatchProduct
 {
     public class PatchProductCommand : RequestBase<Product, PatchProductCommandResponse>
     {
-        protected PatchProductCommand()
+        public PatchProductCommand()
         {
             ConfigKeys(x => x.ProductID);
 

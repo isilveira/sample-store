@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
 {
     public class GetOrdersByFilterQuery : RequestBase<Order, GetOrdersByFilterQueryResponse>
     {
-        protected GetOrdersByFilterQuery()
+        public GetOrdersByFilterQuery()
         {
             ConfigKeys(x => x.OrderID);
 

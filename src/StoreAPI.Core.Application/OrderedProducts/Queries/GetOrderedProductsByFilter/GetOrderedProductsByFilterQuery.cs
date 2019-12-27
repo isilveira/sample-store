@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.OrderedProducts.Queries.GetOrderedProductsBy
 {
     public class GetOrderedProductsByFilterQuery : RequestBase<OrderedProduct, GetOrderedProductsByFilterQueryResponse>
     {
-        protected GetOrderedProductsByFilterQuery()
+        public GetOrderedProductsByFilterQuery()
         {
             ConfigKeys(x => x.OrderedProductID);
 

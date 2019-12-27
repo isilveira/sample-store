@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Orders.Queries.GetOrderByID
 {
     public class GetOrderByIDQuery : RequestBase<Order, GetOrderByIDQueryResponse>
     {
-        protected GetOrderByIDQuery()
+        public GetOrderByIDQuery()
         {
             ConfigKeys(x => x.OrderID);
 

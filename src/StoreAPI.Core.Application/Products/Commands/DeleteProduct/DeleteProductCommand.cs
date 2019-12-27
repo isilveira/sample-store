@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Products.Commands.DeleteProduct
 {
     public class DeleteProductCommand : RequestBase<Product, DeleteProductCommandResponse>
     {
-        protected DeleteProductCommand()
+        public DeleteProductCommand()
         {
             ConfigKeys(x => x.ProductID);
 

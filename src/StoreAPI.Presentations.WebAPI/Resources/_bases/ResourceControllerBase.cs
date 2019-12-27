@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using System.Linq;
+using ModelWrapper;
+using StoreAPI.Core.Application.Bases;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,7 +16,9 @@ namespace StoreAPI.Resources._Bases
         private IMediator _mediator;
         private IMediator Mediator => _mediator ?? (_mediator = HttpContext.RequestServices.GetService<IMediator>());
 
-        public async Task<ActionResult<TResponse>> Send<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ActionResult<TResponse>> Send<TEntity, TResponse>(RequestBase<TEntity, TResponse> request, CancellationToken cancellationToken = default(CancellationToken))
+            where TEntity : class
+            where TResponse : ResponseBase<TEntity>
         {
             try
             {
@@ -24,8 +26,15 @@ namespace StoreAPI.Resources._Bases
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new WrapResponse(400, 4001001, request.RequestObject, null, ex.Message, 0));
             }
+        }
+
+        public async Task<TResponse> SendRequest<TEntity, TResponse>(RequestBase<TEntity, TResponse> request, CancellationToken cancellationToken = default(CancellationToken))
+            where TEntity : class
+            where TResponse : ResponseBase<TEntity>
+        {
+            return await Mediator.Send(request, cancellationToken);
         }
     }
 }

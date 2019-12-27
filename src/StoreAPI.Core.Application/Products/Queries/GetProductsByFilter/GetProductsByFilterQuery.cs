@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductsByFilter
 {
     public class GetProductsByFilterQuery : RequestBase<Product, GetProductsByFilterQueryResponse>
     {
-        protected GetProductsByFilterQuery()
+        public GetProductsByFilterQuery()
         {
             ConfigKeys(x => x.ProductID);
 

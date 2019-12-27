@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Orders.Commands.PatchOrder
 {
     public class PatchOrderCommand : RequestBase<Order, PatchOrderCommandResponse>
     {
-        protected PatchOrderCommand()
+        public PatchOrderCommand()
         {
             ConfigKeys(x => x.OrderID);
 

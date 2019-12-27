@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductByID
 {
     public class GetProductByIDQuery : RequestBase<Product, GetProductByIDQueryResponse>
     {
-        protected GetProductByIDQuery()
+        public GetProductByIDQuery()
         {
             ConfigKeys(x => x.ProductID);
 

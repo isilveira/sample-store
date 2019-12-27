@@ -1,14 +1,11 @@
-﻿using MediatR;
-using ModelWrapper;
-using StoreAPI.Core.Application.Bases;
+﻿using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
-using System;
 
 namespace StoreAPI.Core.Application.Orders.Commands.PostOrder
 {
     public class PostOrderCommand : RequestBase<Order, PostOrderCommandResponse>
     {
-        protected PostOrderCommand()
+        public PostOrderCommand()
         {
             ConfigKeys(x => x.OrderID);
 

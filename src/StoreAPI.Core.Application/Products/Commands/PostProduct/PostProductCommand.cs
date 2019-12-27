@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PostProduct
 {
     public class PostProductCommand : RequestBase<Product, PostProductCommandResponse>
     {
-        protected PostProductCommand()
+        public PostProductCommand()
         {
             ConfigKeys(x => x.ProductID);
 

@@ -13,38 +13,36 @@ namespace StoreAPI.Resources
     public class CategoriesController : ResourceControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<GetCategoriesByFilterQueryResponse>> Get([FromQuery]GetCategoriesByFilterQuery request)
+        public async Task<ActionResult<GetCategoriesByFilterQueryResponse>> Get(GetCategoriesByFilterQuery request)
         {
             return await Send(request);
         }
 
         [HttpGet("{categoryid}")]
-        public async Task<ActionResult<GetCategoryByIDQueryResponse>> Get([FromRoute] GetCategoryByIDQuery request)
+        public async Task<ActionResult<GetCategoryByIDQueryResponse>> Get(GetCategoryByIDQuery request)
         {
             return await Send(request);
         }
         [HttpPost]
-        public async Task<ActionResult<PostCategoryCommandResponse>> Post([FromBody] PostCategoryCommand request)
+        public async Task<ActionResult<PostCategoryCommandResponse>> Post(PostCategoryCommand request)
         {
             return await Send(request);
         }
 
         [HttpPut("{categoryid}")]
-        public async Task<ActionResult<PutCategoryCommandResponse>> Put([FromRoute]int categoryID, [FromBody]PutCategoryCommand request)
+        public async Task<ActionResult<PutCategoryCommandResponse>> Put(PutCategoryCommand request)
         {
-            request.Project(x => x.CategoryID = categoryID);
             return await Send(request);
         }
 
         [HttpPatch("{categoryid}")]
-        public async Task<ActionResult<PatchCategoryCommandResponse>> Patch([FromRoute]int categoryID, [FromBody] PatchCategoryCommand request)
+        public async Task<ActionResult<PatchCategoryCommandResponse>> Patch(PatchCategoryCommand request)
         {
-            request.Project(x => x.CategoryID = categoryID);
             return await Send(request);
         }
 
         [HttpDelete("{categoryid}")]
-        public async Task<ActionResult<DeleteCategoryCommandResponse>> Delete([FromRoute]DeleteCategoryCommand request)
+        public async Task<ActionResult<DeleteCategoryCommandResponse>> Delete(DeleteCategoryCommand request)
         {
             return await Send(request);
         }

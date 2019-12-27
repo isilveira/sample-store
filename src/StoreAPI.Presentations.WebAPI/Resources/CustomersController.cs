@@ -13,38 +13,36 @@ namespace StoreAPI.Resources
     public class CustomersController : ResourceControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<GetCustomersByFilterQueryResponse>> Get([FromQuery]GetCustomersByFilterQuery request)
+        public async Task<ActionResult<GetCustomersByFilterQueryResponse>> Get(GetCustomersByFilterQuery request)
         {
             return await Send(request);
         }
 
         [HttpGet("{customerid}")]
-        public async Task<ActionResult<GetCustomerByIDQueryResponse>> Get([FromRoute] GetCustomerByIDQuery request)
+        public async Task<ActionResult<GetCustomerByIDQueryResponse>> Get(GetCustomerByIDQuery request)
         {
             return await Send(request);
         }
         [HttpPost]
-        public async Task<ActionResult<PostCustomerCommandResponse>> Post([FromBody] PostCustomerCommand request)
+        public async Task<ActionResult<PostCustomerCommandResponse>> Post(PostCustomerCommand request)
         {
             return await Send(request);
         }
 
         [HttpPut("{customerid}")]
-        public async Task<ActionResult<PutCustomerCommandResponse>> Put([FromRoute]int customerID, [FromBody]PutCustomerCommand request)
+        public async Task<ActionResult<PutCustomerCommandResponse>> Put(PutCustomerCommand request)
         {
-            request.Project(x => x.CustomerID = customerID);
             return await Send(request);
         }
 
         [HttpPatch("{customerid}")]
-        public async Task<ActionResult<PatchCustomerCommandResponse>> Patch([FromRoute]int customerID, [FromBody] PatchCustomerCommand request)
+        public async Task<ActionResult<PatchCustomerCommandResponse>> Patch(PatchCustomerCommand request)
         {
-            request.Project(x => x.CustomerID = customerID);
             return await Send(request);
         }
 
         [HttpDelete("{customerid}")]
-        public async Task<ActionResult<DeleteCustomerCommandResponse>> Delete([FromRoute]DeleteCustomerCommand request)
+        public async Task<ActionResult<DeleteCustomerCommandResponse>> Delete(DeleteCustomerCommand request)
         {
             return await Send(request);
         }

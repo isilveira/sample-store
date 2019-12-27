@@ -8,7 +8,7 @@ namespace StoreAPI.Core.Application.Orders.Commands.PutOrder
 {
     public class PutOrderCommand : RequestBase<Order, PutOrderCommandResponse>
     {
-        protected PutOrderCommand()
+        public PutOrderCommand()
         {
             ConfigKeys(x => x.OrderID);
 

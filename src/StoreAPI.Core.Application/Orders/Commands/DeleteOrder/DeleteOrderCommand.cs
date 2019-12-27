@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Orders.Commands.DeleteOrder
 {
     public class DeleteOrderCommand : RequestBase<Order, DeleteOrderCommandResponse>
     {
-        protected DeleteOrderCommand()
+        public DeleteOrderCommand()
         {
             ConfigKeys(x => x.OrderID);
 

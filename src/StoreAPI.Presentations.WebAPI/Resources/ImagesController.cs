@@ -13,38 +13,36 @@ namespace StoreAPI.Resources
     public class Images : ResourceControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<GetImagesByFilterQueryResponse>> Get([FromQuery]GetImagesByFilterQuery request)
+        public async Task<ActionResult<GetImagesByFilterQueryResponse>> Get(GetImagesByFilterQuery request)
         {
             return await Send(request);
         }
 
         [HttpGet("{imageid}")]
-        public async Task<ActionResult<GetImageByIDQueryResponse>> Get([FromRoute] GetImageByIDQuery request)
+        public async Task<ActionResult<GetImageByIDQueryResponse>> Get(GetImageByIDQuery request)
         {
             return await Send(request);
         }
         [HttpPost]
-        public async Task<ActionResult<PostImageCommandResponse>> Post([FromBody] PostImageCommand request)
+        public async Task<ActionResult<PostImageCommandResponse>> Post(PostImageCommand request)
         {
             return await Send(request);
         }
 
         [HttpPut("{imageid}")]
-        public async Task<ActionResult<PutImageCommandResponse>> Put([FromRoute]int imageID, [FromBody]PutImageCommand request)
+        public async Task<ActionResult<PutImageCommandResponse>> Put(PutImageCommand request)
         {
-            request.Project(x => x.ImageID = imageID);
             return await Send(request);
         }
 
         [HttpPatch("{imageid}")]
-        public async Task<ActionResult<PatchImageCommandResponse>> Patch([FromRoute]int imageID, [FromBody] PatchImageCommand request)
+        public async Task<ActionResult<PatchImageCommandResponse>> Patch(PatchImageCommand request)
         {
-            request.Project(x=>x.ImageID = imageID);
             return await Send(request);
         }
 
         [HttpDelete("{imageid}")]
-        public async Task<ActionResult<DeleteImageCommandResponse>> Delete([FromRoute]DeleteImageCommand request)
+        public async Task<ActionResult<DeleteImageCommandResponse>> Delete(DeleteImageCommand request)
         {
             return await Send(request);
         }

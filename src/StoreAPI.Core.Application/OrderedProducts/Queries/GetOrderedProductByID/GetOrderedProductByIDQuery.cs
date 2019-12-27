@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.OrderedProducts.Queries.GetOrderedProductByI
 {
     public class GetOrderedProductByIDQuery : RequestBase<OrderedProduct, GetOrderedProductByIDQueryResponse>
     {
-        protected GetOrderedProductByIDQuery()
+        public GetOrderedProductByIDQuery()
         {
             ConfigKeys(x => x.OrderedProductID);
 

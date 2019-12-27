@@ -5,7 +5,7 @@ namespace StoreAPI.Core.Application.Products.Commands.PutProduct
 {
     public class PutProductCommand : RequestBase<Product, PutProductCommandResponse>
     {
-        protected PutProductCommand()
+        public PutProductCommand()
         {
             ConfigKeys(x => x.ProductID);
 
