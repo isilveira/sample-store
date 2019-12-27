@@ -1,20 +1,19 @@
 ﻿using MediatR;
 using ModelWrapper;
+using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
 using System;
 
 namespace StoreAPI.Core.Application.Orders.Commands.PostOrder
 {
-    public class PostOrderCommand : Wrap<Order>, IRequest<PostOrderCommandResponse>
+    public class PostOrderCommand : RequestBase<Order, PostOrderCommandResponse>
     {
-        public PostOrderCommand()
+        protected PostOrderCommand()
         {
-            KeyProperty(x => x.OrderID);
-            SuppressProperty(x => x.RegistrationDate);
-            SuppressProperty(x => x.CancellationDate);
-            SuppressProperty(x => x.ConfirmationDate);
-            SuppressProperty(x => x.OrderedProducts);
-            SuppressProperty(x => x.Customer);
+            ConfigKeys(x => x.OrderID);
+
+            ConfigSuppressedProperties(x => x.Customer);
+            ConfigSuppressedProperties(x => x.OrderedProducts);
         }
     }
 }

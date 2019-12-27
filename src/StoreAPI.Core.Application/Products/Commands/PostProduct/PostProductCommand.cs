@@ -1,22 +1,21 @@
-﻿using MediatR;
-using ModelWrapper;
+﻿using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace StoreAPI.Core.Application.Products.Commands.PostProduct
 {
-    public class PostProductCommand : Wrap<Product>, IRequest<PostProductCommandResponse>
+    public class PostProductCommand : RequestBase<Product, PostProductCommandResponse>
     {
-        public PostProductCommand()
+        protected PostProductCommand()
         {
-            KeyProperty(x => x.ProductID);
-            SuppressProperty(x => x.RegistrationDate);
-            SuppressProperty(x => x.Category);
-            SuppressProperty(x => x.Images);
-            SuppressProperty(x => x.OrderedProducts);
+            ConfigKeys(x => x.ProductID);
+
+            ConfigSuppressedProperties(x => x.OrderedProducts);
+            ConfigSuppressedProperties(x => x.Images);
+            ConfigSuppressedProperties(x => x.Category);
+
+            ConfigSuppressedResponseProperties(x => x.Category);
+            ConfigSuppressedResponseProperties(x => x.Images);
+            ConfigSuppressedResponseProperties(x => x.OrderedProducts);
         }
     }
 }

@@ -3,13 +3,19 @@ using StoreAPI.Core.Domain.Entities;
 
 namespace StoreAPI.Core.Application.Products.Queries.GetProductsByFilter
 {
-    public class GetProductsByFilterQuery: RequestBase<Product, GetProductsByFilterQueryResponse>
+    public class GetProductsByFilterQuery : RequestBase<Product, GetProductsByFilterQueryResponse>
     {
-        public GetProductsByFilterQuery()
+        protected GetProductsByFilterQuery()
         {
-            SetRestrictProperty(x => x.Category);
-            SetRestrictProperty(x => x.Images);
-            SetRestrictProperty(x => x.OrderedProducts);
+            ConfigKeys(x => x.ProductID);
+
+            ConfigSuppressedProperties(x => x.OrderedProducts);
+            ConfigSuppressedProperties(x => x.Images);
+            ConfigSuppressedProperties(x => x.Category);
+
+            ConfigSuppressedResponseProperties(x => x.Category);
+            ConfigSuppressedResponseProperties(x => x.Images);
+            ConfigSuppressedResponseProperties(x => x.OrderedProducts);
         }
     }
 }

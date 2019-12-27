@@ -16,4 +16,5 @@ namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
             ConfigSuppressedResponseProperties(x => x.OrderedProducts);
             ConfigSuppressedResponseProperties(x => x.Customer);
         }
+    }
 }

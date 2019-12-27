@@ -1,16 +1,21 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StoreAPI.Core.Application.Bases;
+using StoreAPI.Core.Domain.Entities;
 
 namespace StoreAPI.Core.Application.Products.Queries.GetProductByID
 {
-    public class GetProductByIDQuery:IRequest<GetProductByIDQueryResponse>
+    public class GetProductByIDQuery : RequestBase<Product, GetProductByIDQueryResponse>
     {
-        public int ProductID { get; set; }
-        public GetProductByIDQuery()
+        protected GetProductByIDQuery()
         {
+            ConfigKeys(x => x.ProductID);
+
+            ConfigSuppressedProperties(x => x.OrderedProducts);
+            ConfigSuppressedProperties(x => x.Images);
+            ConfigSuppressedProperties(x => x.Category);
+
+            ConfigSuppressedResponseProperties(x => x.Category);
+            ConfigSuppressedResponseProperties(x => x.Images);
+            ConfigSuppressedResponseProperties(x => x.OrderedProducts);
         }
     }
 }

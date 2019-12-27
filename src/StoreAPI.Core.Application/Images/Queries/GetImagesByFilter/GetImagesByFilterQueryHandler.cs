@@ -1,11 +1,7 @@
-﻿using EntitySearch.Extensions;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ModelWrapper.Extensions.FullSearch;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
