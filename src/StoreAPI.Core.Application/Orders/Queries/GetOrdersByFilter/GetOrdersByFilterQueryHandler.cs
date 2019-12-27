@@ -1,10 +1,9 @@
-﻿using System.Linq;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using ModelWrapper.Extensions.FullSearch;
+using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using EntitySearch.Extensions;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 
 namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
 {
@@ -18,28 +17,13 @@ namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
         public async Task<GetOrdersByFilterQueryResponse> Handle(GetOrdersByFilterQuery request, CancellationToken cancellationToken)
         {
             int resultCount = 0;
-            var results = await Context.Orders
-                .Filter(request)
-                .Search(request)
-                .Count(ref resultCount)
-                .OrderBy(request)
-                .Scope(request)
+
+            var data = await Context.Orders
+                .FullSearch(request, out resultCount)
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);
 
-            return new GetOrdersByFilterQueryResponse
-            {
-                Request = request,
-                ResultCount = resultCount,
-                Data = results.Select(data => new GetOrdersByFilterQueryResponseDTO
-                {
-                    OrderID = data.OrderID,
-                    CustomerID = data.CustomerID,
-                    RegistrationDate = data.RegistrationDate,
-                    ConfirmationDate = data.ConfirmationDate,
-                    CancellationDate = data.CancellationDate
-                }).ToList()
-            };
+            return new GetOrdersByFilterQueryResponse(request, data, resultCount: resultCount);
         }
     }
 }

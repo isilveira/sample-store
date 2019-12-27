@@ -1,16 +1,19 @@
-﻿using EntitySearch;
-using MediatR;
+﻿using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
-using System;
 
 namespace StoreAPI.Core.Application.Orders.Queries.GetOrdersByFilter
 {
-    public class GetOrdersByFilterQuery : EntitySearch<Order>, IRequest<GetOrdersByFilterQueryResponse>
+    public class GetOrdersByFilterQuery : RequestBase<Order, GetOrdersByFilterQueryResponse>
     {
-        public GetOrdersByFilterQuery()
+        protected GetOrdersByFilterQuery()
         {
-            SetRestrictProperty(x => x.Customer);
-            SetRestrictProperty(x => x.OrderedProducts);
+            ConfigKeys(x => x.OrderID);
+
+            ConfigSuppressedProperties(x => x.RegistrationDate);
+            ConfigSuppressedProperties(x => x.OrderedProducts);
+            ConfigSuppressedProperties(x => x.Customer);
+
+            ConfigSuppressedResponseProperties(x => x.OrderedProducts);
+            ConfigSuppressedResponseProperties(x => x.Customer);
         }
-    }
 }

@@ -1,18 +1,19 @@
 ﻿using MediatR;
 using ModelWrapper;
+using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
 using System;
 
 namespace StoreAPI.Core.Application.Orders.Commands.PutOrder
 {
-    public class PutOrderCommand : Wrap<Order>, IRequest<PutOrderCommandResponse>
+    public class PutOrderCommand : RequestBase<Order, PutOrderCommandResponse>
     {
-        public PutOrderCommand()
+        protected PutOrderCommand()
         {
-            KeyProperty(x => x.OrderID);
-            SuppressProperty(x => x.RegistrationDate);
-            SuppressProperty(x => x.OrderedProducts);
-            SuppressProperty(x => x.Customer);
+            ConfigKeys(x => x.OrderID);
+
+            ConfigSuppressedProperties(x => x.Customer);
+            ConfigSuppressedProperties(x => x.OrderedProducts);
         }
     }
 }
