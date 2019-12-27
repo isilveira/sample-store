@@ -1,8 +1,7 @@
-﻿using EntitySearch.Extensions;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ModelWrapper.Extensions.FullSearch;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,27 +17,13 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoriesByFilter
         public async Task<GetCategoriesByFilterQueryResponse> Handle(GetCategoriesByFilterQuery request, CancellationToken cancellationToken)
         {
             int resultCount = 0;
-            var results =  await Context.Categories
-                .Filter(request)
-                .Search(request)
-                .Count(ref resultCount)
-                .OrderBy(request)
-                .Scope(request)
+            
+            var data =  await Context.Categories
+                .FullSearch(request, out resultCount)
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);
             
-            return new GetCategoriesByFilterQueryResponse
-            {
-                Request = request,
-                ResultCount = resultCount,
-                Data = results.Select(data => new GetCategoriesByFilterQueryResponseDTO
-                {
-                    CategoryID = data.CategoryID,
-                    RootCategoryID = data.RootCategoryID,
-                    Name = data.Name,
-                    Description = data.Description
-                }).ToList()
-            };
+            return new GetCategoriesByFilterQueryResponse(request, data, resultCount: resultCount);
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace StoreAPI.Core.Application.Customers.Commands.DeleteCustomer
 {
@@ -16,7 +16,9 @@ namespace StoreAPI.Core.Application.Customers.Commands.DeleteCustomer
         }
         public async Task<DeleteCustomerCommandResponse> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
-            var data = await Context.Customers.SingleOrDefaultAsync(x => x.CustomerID== request.CustomerID);
+            var id = request.Project(x => x.CustomerID);
+
+            var data = await Context.Customers.SingleOrDefaultAsync(x => x.CustomerID == id);
 
             if (data == null)
                 throw new Exception("Customer not found!");
@@ -25,17 +27,7 @@ namespace StoreAPI.Core.Application.Customers.Commands.DeleteCustomer
 
             await Context.SaveChangesAsync();
 
-            return new DeleteCustomerCommandResponse
-            {
-                Request = request,
-                Message = "Successful operation!",
-                Data = new DeleteCustomerCommandResponseDTO
-                {
-                    CustomerID = data.CustomerID,
-                    Name = data.Name,
-                    Email = data.Email
-                }
-            };
+            return new DeleteCustomerCommandResponse(request, data, "Successful operation!");
         }
     }
 }

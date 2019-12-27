@@ -1,6 +1,6 @@
-﻿using EntitySearch.Extensions;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ModelWrapper.Extensions.FullSearch;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using System.Linq;
 using System.Threading;
@@ -20,11 +20,7 @@ namespace StoreAPI.Core.Application.Products.Queries.GetProductsByFilter
         {
             int resultCount = 0;
             var results = await Context.Products
-                .Filter(request)
-                .Search(request)
-                .Count(ref resultCount)
-                .OrderBy(request)
-                .Scope(request)
+                .FullSearch(request, out resultCount)
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);
 

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ModelWrapper.Extensions.Post;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using System;
 using System.Threading;
@@ -23,17 +24,7 @@ namespace StoreAPI.Core.Application.Customers.Commands.PostCustomer
 
             await Context.SaveChangesAsync();
 
-            return new PostCustomerCommandResponse
-            {
-                Message = "Successful operation!",
-                Request = request.AsDictionary(ModelWrapper.EnumProperties.AllWithoutKeys),
-                Data = new PostCustomerCommandResponseDTO
-                {
-                    CustomerID = data.CustomerID,
-                    Name = data.Name,
-                    Email = data.Email
-                }
-            };
+            return new PostCustomerCommandResponse(request, data, "Successful operation!");
         }
     }
 }

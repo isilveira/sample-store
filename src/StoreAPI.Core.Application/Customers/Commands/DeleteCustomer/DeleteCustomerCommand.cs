@@ -1,9 +1,15 @@
-﻿using MediatR;
+﻿using StoreAPI.Core.Application.Bases;
+using StoreAPI.Core.Domain.Entities;
 
 namespace StoreAPI.Core.Application.Customers.Commands.DeleteCustomer
 {
-    public class DeleteCustomerCommand : IRequest<DeleteCustomerCommandResponse>
+    public class DeleteCustomerCommand : RequestBase<Customer, DeleteCustomerCommandResponse>
     {
-        public int CustomerID { get; set; }
+        public DeleteCustomerCommand()
+        {
+            ConfigKeys(x => x.CustomerID);
+
+            ConfigSuppressedProperties(x => x.Orders);
+        }
     }
 }

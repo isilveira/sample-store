@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ModelWrapper.Extensions.Select;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,25 +18,20 @@ namespace StoreAPI.Core.Application.Categories.Queries.GetCategoryByID
         }
         public async Task<GetCategoryByIDQueryResponse> Handle(GetCategoryByIDQuery request, CancellationToken cancellationToken)
         {
-            var data = await Context.Categories.AsNoTracking().SingleOrDefaultAsync(x => x.CategoryID == request.CategoryID);
+            var id = request.Project(x => x.CategoryID);
+
+            var data = await Context.Categories
+                .Where(x => x.CategoryID == id)
+                .Select(request)
+                .AsNoTracking()
+                .SingleOrDefaultAsync();
 
             if (data == null)
             {
                 throw new Exception("Category not found!");
             }
 
-            return new GetCategoryByIDQueryResponse
-            {
-                ResultCount = 1,
-                Request = request,
-                Data = new GetCategoryByIDQueryResponseDTO
-                {
-                    CategoryID = data.CategoryID,
-                    RootCategoryID = data.RootCategoryID,
-                    Name = data.Name,
-                    Description = data.Description
-                }
-            };
+            return new GetCategoryByIDQueryResponse(request, data, resultCount: 1);
         }
     }
 }

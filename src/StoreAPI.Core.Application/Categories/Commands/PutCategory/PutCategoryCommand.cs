@@ -1,21 +1,17 @@
-﻿using MediatR;
-using ModelWrapper;
+﻿using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace StoreAPI.Core.Application.Categories.Commands.PutCategory
 {
-    public class PutCategoryCommand : Wrap<Category>,IRequest<PutCategoryCommandResponse>
+    public class PutCategoryCommand : RequestBase<Category, PutCategoryCommandResponse>
     {
         public PutCategoryCommand()
         {
-            KeyProperty(x => x.CategoryID);
-            SuppressProperty(x => x.LeafCategories);
-            SuppressProperty(x => x.Products);
-            SuppressProperty(x => x.RootCategory);
+            ConfigKeys(x => x.CategoryID);
+
+            ConfigSuppressedProperties(x => x.LeafCategories);
+            ConfigSuppressedProperties(x => x.RootCategory);
+            ConfigSuppressedProperties(x => x.Products);
         }
     }
 }

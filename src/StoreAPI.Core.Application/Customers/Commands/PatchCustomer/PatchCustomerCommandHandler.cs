@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ModelWrapper.Extensions.Patch;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using System;
 using System.Threading;
@@ -17,6 +18,7 @@ namespace StoreAPI.Core.Application.Customers.Commands.PatchCustomer
         public async Task<PatchCustomerCommandResponse> Handle(PatchCustomerCommand request, CancellationToken cancellationToken)
         {
             var id = request.Project(x => x.CustomerID);
+
             var data = await Context.Customers.SingleOrDefaultAsync(x => x.CustomerID == id);
 
             if (data == null)
@@ -28,17 +30,7 @@ namespace StoreAPI.Core.Application.Customers.Commands.PatchCustomer
 
             await Context.SaveChangesAsync();
 
-            return new PatchCustomerCommandResponse
-            {
-                Message = "Successful operation!",
-                Request = request.AsDictionary(ModelWrapper.EnumProperties.OnlySupplieds),
-                Data = new PatchCustomerCommandResponseDTO
-                {
-                    CustomerID = data.CustomerID,
-                    Name = data.Name,
-                    Email = data.Email
-                }
-            };
+            return new PatchCustomerCommandResponse(request, data, "Successful operation!");
         }
     }
 }

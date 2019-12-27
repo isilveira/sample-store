@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,7 +16,9 @@ namespace StoreAPI.Core.Application.Categories.Commands.DeleteCategory
         }
         public async Task<DeleteCategoryCommandResponse> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            var data = await Context.Categories.SingleOrDefaultAsync(x => x.CategoryID == request.CategoryID);
+            var id = request.Project(x => x.CategoryID);
+
+            var data = await Context.Categories.SingleOrDefaultAsync(x => x.CategoryID == id);
 
             if (data == null)
                 throw new Exception("Category not found!");
@@ -26,18 +27,7 @@ namespace StoreAPI.Core.Application.Categories.Commands.DeleteCategory
 
             await Context.SaveChangesAsync();
 
-            return new DeleteCategoryCommandResponse
-            {
-                Request = request,
-                Message = "Successful operation!",
-                Data = new DeleteCategoryCommandResponseDTO
-                {
-                    CategoryID = data.CategoryID,
-                    RootCategoryID = data.RootCategoryID,
-                    Name = data.Name,
-                    Description = data.Description
-                }
-            };
+            return new DeleteCategoryCommandResponse(request, data, "Successful operation!", 1);
         }
     }
 }
