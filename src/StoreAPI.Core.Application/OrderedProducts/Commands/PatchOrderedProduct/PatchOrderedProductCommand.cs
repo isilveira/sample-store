@@ -1,18 +1,16 @@
-﻿using MediatR;
-using ModelWrapper;
+﻿using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
-using System;
 
 namespace StoreAPI.Core.Application.OrderedProducts.Commands.PatchOrderedProduct
 {
-    public class PatchOrderedProductCommand : Wrap<OrderedProduct>, IRequest<PatchOrderedProductCommandResponse>
+    public class PatchOrderedProductCommand : RequestBase<OrderedProduct, PatchOrderedProductCommandResponse>
     {
         public PatchOrderedProductCommand()
         {
-            KeyProperty(x => x.OrderedProductID);
-            SuppressProperty(x => x.RegistrationDate);
-            SuppressProperty(x => x.Order);
-            SuppressProperty(x => x.Product);
+            ConfigKeys(x => x.OrderedProductID);
+
+            ConfigSuppressedProperties(x => x.Product);
+            ConfigSuppressedProperties(x => x.Order);
         }
     }
 }
