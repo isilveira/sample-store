@@ -1,15 +1,17 @@
 ﻿using MediatR;
 using ModelWrapper;
+using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
 
 namespace StoreAPI.Core.Application.Images.Commands.PatchImage
 {
-    public class PatchImageCommand : Wrap<Image>, IRequest<PatchImageCommandResponse>
+    public class PatchImageCommand : RequestBase<Image, PatchImageCommandResponse>
     {
         public PatchImageCommand()
         {
-            KeyProperty(x => x.ImageID);
-            SuppressProperty(x => x.Product);
+            ConfigKeys(x => x.ImageID);
+
+            ConfigSuppressedProperties(x => x.Product);
         }
     }
 }

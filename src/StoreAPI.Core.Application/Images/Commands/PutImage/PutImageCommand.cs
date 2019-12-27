@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using ModelWrapper;
+using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace StoreAPI.Core.Application.Images.Commands.PutImage
 {
-    public class PutImageCommand : Wrap<Image>, IRequest<PutImageCommandResponse>
+    public class PutImageCommand : RequestBase<Image, PutImageCommandResponse>
     {
         public PutImageCommand()
         {
-            KeyProperty(x => x.ImageID);
-            SuppressProperty(x => x.Product);
+            ConfigKeys(x => x.ImageID);
+
+            ConfigSuppressedProperties(x => x.Product);
         }
     }
 }

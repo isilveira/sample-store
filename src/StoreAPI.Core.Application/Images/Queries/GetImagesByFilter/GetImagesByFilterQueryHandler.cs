@@ -1,6 +1,7 @@
 ﻿using EntitySearch.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ModelWrapper.Extensions.FullSearch;
 using StoreAPI.Core.Application.Interfaces.Infrastructures.Data;
 using System;
 using System.Collections.Generic;
@@ -21,27 +22,12 @@ namespace StoreAPI.Core.Application.Images.Queries.GetImagesByFilter
         {
             int resultCount = 0;
 
-            var results = await Context.Images
-                .Filter(request)
-                .Search(request)
-                .Count(ref resultCount)
-                .OrderBy(request)
-                .Scope(request)
+            var data = await Context.Images
+                .FullSearch(request, out resultCount)
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);
 
-            return new GetImagesByFilterQueryResponse
-            {
-                Request = request,
-                ResultCount = resultCount,
-                Data = results.Select(data => new GetImagesByFilterQueryResponseDTO
-                {
-                    ImageID = data.ImageID,
-                    ProductID = data.ProductID,
-                    MimeType = data.MimeType,
-                    Url = data.Url
-                }).ToList()
-            };
+            return new GetImagesByFilterQueryResponse(request, data, resultCount: resultCount);
         }
     }
 }

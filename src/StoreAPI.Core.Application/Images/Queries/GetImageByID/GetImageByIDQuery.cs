@@ -1,16 +1,17 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StoreAPI.Core.Application.Bases;
+using StoreAPI.Core.Domain.Entities;
 
 namespace StoreAPI.Core.Application.Images.Queries.GetImageByID
 {
-    public class GetImageByIDQuery : IRequest<GetImageByIDQueryResponse>
+    public class GetImageByIDQuery : RequestBase<Image, GetImageByIDQueryResponse>
     {
-        public int ImageID { get; set; }
         public GetImageByIDQuery()
         {
+            ConfigKeys(x => x.ImageID);
+
+            ConfigSuppressedProperties(x => x.Product);
+
+            ConfigSuppressedResponseProperties(x => x.Product);
         }
     }
 }

@@ -1,14 +1,17 @@
-﻿using EntitySearch;
-using MediatR;
+﻿using StoreAPI.Core.Application.Bases;
 using StoreAPI.Core.Domain.Entities;
 
 namespace StoreAPI.Core.Application.Images.Queries.GetImagesByFilter
 {
-    public class GetImagesByFilterQuery : EntitySearch<Image>, IRequest<GetImagesByFilterQueryResponse>
+    public class GetImagesByFilterQuery : RequestBase<Image, GetImagesByFilterQueryResponse>
     {
         public GetImagesByFilterQuery()
         {
-            SetRestrictProperty(x => x.Product);
+            ConfigKeys(x => x.ImageID);
+
+            ConfigSuppressedProperties(x => x.Product);
+
+            ConfigSuppressedResponseProperties(x => x.Product);
         }
     }
 }
