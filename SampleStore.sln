@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{61B00388-9312-4E16-A12D-9BD20A3C5A2C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreAPI.Presentations.WebAPI", "src\StoreAPI.Presentations.WebAPI\StoreAPI.Presentations.WebAPI.csproj", "{E9B10CA7-7C18-457F-9DD3-2E2D38E4287A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Presentations.WebAPI", "src\Store.Presentations.WebAPI\Store.Presentations.WebAPI.csproj", "{E9B10CA7-7C18-457F-9DD3-2E2D38E4287A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{400BB916-1C29-44B1-9ECD-8C8FED5D63C3}"
 EndProject
@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middleware", "Middleware", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentations", "{996255B2-FAC6-4504-979A-4778E546C231}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAPI.Core.Application", "src\StoreAPI.Core.Application\StoreAPI.Core.Application.csproj", "{1C928E8B-BE28-425F-BD65-EAF681F74F7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Core.Application", "src\Store.Core.Application\Store.Core.Application.csproj", "{1C928E8B-BE28-425F-BD65-EAF681F74F7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAPI.Core.Domain.Entities", "src\StoreAPI.Core.Domain.Entities\StoreAPI.Core.Domain.Entities.csproj", "{E38B0FFA-F7F9-4C29-9A3A-6D58999C1607}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Core.Domain.Entities", "src\Store.Core.Domain.Entities\Store.Core.Domain.Entities.csproj", "{E38B0FFA-F7F9-4C29-9A3A-6D58999C1607}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAPI.Core.Domain.Interfaces", "src\StoreAPI.Core.Domain.Interfaces\StoreAPI.Core.Domain.Interfaces.csproj", "{D01C9EC0-F846-4D40-B6E2-456F4FC527AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Core.Domain.Interfaces", "src\Store.Core.Domain.Interfaces\Store.Core.Domain.Interfaces.csproj", "{D01C9EC0-F846-4D40-B6E2-456F4FC527AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAPI.Core.Infrastructures.Data", "src\StoreAPI.Core.Infrastructures.Data\StoreAPI.Core.Infrastructures.Data.csproj", "{139C414B-5855-4D50-A894-1E5CCA164086}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Core.Infrastructures.Data", "src\Store.Core.Infrastructures.Data\Store.Core.Infrastructures.Data.csproj", "{139C414B-5855-4D50-A894-1E5CCA164086}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAPI.Middleware", "src\StoreAPI.Middleware\StoreAPI.Middleware.csproj", "{8E4B8079-905D-4B52-B368-C1855DFDBB6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Middleware", "src\Store.Middleware\Store.Middleware.csproj", "{8E4B8079-905D-4B52-B368-C1855DFDBB6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
