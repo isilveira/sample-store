@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Core.Domain.Entities"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Core.Domain.Interfaces", "src\Store.Core.Domain.Interfaces\Store.Core.Domain.Interfaces.csproj", "{D01C9EC0-F846-4D40-B6E2-456F4FC527AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infrastructures.Data", "src\Store.Core.Infrastructures.Data\Store.Infrastructures.Data.csproj", "{139C414B-5855-4D50-A894-1E5CCA164086}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infrastructures.Data", "src\Store.Infrastructures.Data\Store.Infrastructures.Data.csproj", "{139C414B-5855-4D50-A894-1E5CCA164086}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Middleware", "src\Store.Middleware\Store.Middleware.csproj", "{8E4B8079-905D-4B52-B368-C1855DFDBB6C}"
 EndProject
