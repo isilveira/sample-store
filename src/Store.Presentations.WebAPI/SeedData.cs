@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Core.Application.Interfaces.Infrastructures.Data;
-using Store.Core.Infrastructures.Data.Seeds;
+using Store.Infrastructures.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
-using Store.Core.Infrastructures.Data;
+using Store.Infrastructures.Data;
 
 namespace Store.Presentations.WebAPI
 {
@@ -13,7 +13,7 @@ namespace Store.Presentations.WebAPI
         {
             var services = new ServiceCollection();
             
-            services.AddDbContext<IStoreContext, StoreContext>(options =>
+            services.AddDbContext<IStoreContext, StoreDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             
             var serviceProvider = services.BuildServiceProvider();
@@ -22,7 +22,7 @@ namespace Store.Presentations.WebAPI
             {
                 var context = scope.ServiceProvider.GetService<IStoreContext>();
                 
-                ((StoreContext)context).Database.Migrate();
+                ((StoreDbContext)context).Database.Migrate();
 
                 EnsureSeedData(context, configuration);
             }

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Store.Core.Infrastructures.Data.Seeds
+namespace Store.Infrastructures.Data.Seeds
 {
     public static class IStoreContextSeedExtensions
     {

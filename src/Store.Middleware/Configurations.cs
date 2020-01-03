@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ModelWrapper.Middleware;
 using Store.Core.Application.Interfaces.Infrastructures.Data;
-using Store.Core.Infrastructures.Data;
+using Store.Infrastructures.Data;
 using System;
 
 namespace Store.Middleware
@@ -13,7 +13,7 @@ namespace Store.Middleware
     {
         public static IServiceCollection AddContext(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<IStoreContext, StoreContext>(options =>
+            services.AddDbContext<IStoreContext, StoreDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             return services;

@@ -2,9 +2,9 @@
 using Store.Core.Application.Interfaces.Infrastructures.Data;
 using Store.Core.Domain.Entities;
 
-namespace Store.Core.Infrastructures.Data
+namespace Store.Infrastructures.Data
 {
-    public class StoreContext : DbContext, IStoreContext
+    public class StoreDbContext : DbContext, IStoreContext
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -12,12 +12,12 @@ namespace Store.Core.Infrastructures.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderedProduct> OrderedProducts { get; set; }
-        protected StoreContext()
+        protected StoreDbContext()
         {
             base.Database.EnsureCreated();
         }
 
-        public StoreContext(DbContextOptions options) : base(options)
+        public StoreDbContext(DbContextOptions options) : base(options)
         {
             base.Database.EnsureCreated();
         }
