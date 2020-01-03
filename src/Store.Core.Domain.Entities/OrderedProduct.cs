@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Store.Core.Domain.Entities
 {
@@ -18,5 +15,9 @@ namespace Store.Core.Domain.Entities
 
         public Order Order { get; set; }
         public Product Product { get; set; }
+        public OrderedProduct()
+        {
+
+        }
     }
 }

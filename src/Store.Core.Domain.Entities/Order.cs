@@ -13,6 +13,10 @@ namespace Store.Core.Domain.Entities
         public DateTime? CancellationDate { get; set; }
 
         public Customer Customer { get; set; }
-        public List<OrderedProduct> OrderedProducts { get; set; }
+        public ICollection<OrderedProduct> OrderedProducts { get; set; }
+        public Order()
+        {
+            OrderedProducts = new HashSet<OrderedProduct>();
+        }
     }
 }

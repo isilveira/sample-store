@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Store.Core.Domain.Entities
+﻿namespace Store.Core.Domain.Entities
 {
     public class Image
     {
@@ -14,5 +9,9 @@ namespace Store.Core.Domain.Entities
         public string MimeType { get; set; }
 
         public Product Product { get; set; }
+        public Image()
+        {
+
+        }
     }
 }

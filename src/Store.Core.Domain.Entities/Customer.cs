@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Store.Core.Domain.Entities
 {
@@ -14,6 +12,10 @@ namespace Store.Core.Domain.Entities
 
         public DateTime RegistrationDate { get; set; }
         
-        public List<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
+        public Customer()
+        {
+            Orders = new HashSet<Order>();
+        }
     }
 }

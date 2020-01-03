@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Store.Core.Domain.Entities
 {
@@ -19,8 +17,14 @@ namespace Store.Core.Domain.Entities
         public DateTime? RegistrationDate { get; set; }
         public bool IsVisible { get; set; }
 
-        public List<Image> Images { get; set; }
+        public ICollection<Image> Images { get; set; }
         public Category Category { get; set; }
-        public List<OrderedProduct> OrderedProducts { get; set; }
+        public ICollection<OrderedProduct> OrderedProducts { get; set; }
+
+        public Product()
+        {
+            Images = new HashSet<Image>();
+            OrderedProducts = new HashSet<OrderedProduct>();
+        }
     }
 }

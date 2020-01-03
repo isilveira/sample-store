@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Store.Core.Domain.Entities
 {
@@ -14,7 +11,12 @@ namespace Store.Core.Domain.Entities
         public string Description { get; set; }
 
         public Category RootCategory { get; set; }
-        public List<Category> LeafCategories { get; set; }
-        public List<Product> Products { get; set; }
+        public ICollection<Category> LeafCategories { get; set; }
+        public ICollection<Product> Products { get; set; }
+        public Category()
+        {
+            LeafCategories = new HashSet<Category>();
+            Products = new HashSet<Product>();
+        }
     }
 }
