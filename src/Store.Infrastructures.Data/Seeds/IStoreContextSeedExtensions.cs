@@ -22,9 +22,9 @@ namespace Store.Infrastructures.Data.Seeds
                 return;
             }
 
-            await SeedCategoryAsync(context, Convert.ToInt32(0.5M * seedsMultiplier));
-            await SeedProductsAsync(context, 100 * seedsMultiplier);
-            await SeedConstumersAsync(context, 10 * seedsMultiplier);
+            await SeedCategoryAsync(context, 50 * seedsMultiplier);
+            await SeedProductsAsync(context, 1_000 * seedsMultiplier);
+            await SeedConstumersAsync(context, 500 * seedsMultiplier);
             await SeedOrders(context);
         }
 
@@ -36,18 +36,16 @@ namespace Store.Infrastructures.Data.Seeds
             var totalCustomersWithOrders = await context.Customers.Where(x=>x.Orders.Any()).CountAsync();
             var totalCustomersWithoutOrders = await context.Customers.Where(x => !x.Orders.Any()).CountAsync();
 
-            if (totalCustomers / 4 < totalCustomersWithOrders)
+            if (totalCustomers / 2 < totalCustomersWithOrders)
             {
                 return;
             }
 
-            var custumerIds = await context.Customers.Select(x => x.CustomerID).ToListAsync();
+            var custumers = await context.Customers.ToListAsync();
 
             int saveCounter = 0;
-            foreach (var customerID in custumerIds)
+            foreach (var customer in custumers)
             {
-                var customer = await context.Customers.Where(x => x.CustomerID == customerID).SingleOrDefaultAsync();
-
                 if (chance.Bool())
                 {
                     int productCount = chance.Integer(1, 4);
@@ -90,9 +88,8 @@ namespace Store.Infrastructures.Data.Seeds
                     saveCounter++;
                 }
 
-                if (saveCounter >= 100)
+                if (saveCounter >= 1_000)
                 {
-                    Log.Debug($"Saving {saveCounter.ToString()} orders.");
                     await context.SaveChangesAsync();
                     saveCounter = 0;
                 }
@@ -111,7 +108,6 @@ namespace Store.Infrastructures.Data.Seeds
             int categoriesCount = context.Categories.Count();
             while (categoriesCount < inserts)
             {
-                int saveCounter = 0;
                 for (int i = categoriesCount; i < inserts; i++)
                 {
                     var category = new Category
@@ -122,28 +118,13 @@ namespace Store.Infrastructures.Data.Seeds
                     };
 
                     await context.Categories.AddAsync(category);
-                    saveCounter++;
-
-                    if (saveCounter == 100)
-                    {
-                        Log.Debug($"Saving {saveCounter.ToString()} categories.");
-                        await context.SaveChangesAsync();
-                        saveCounter = 0;
-                    }
 
                     await context.SaveChangesAsync();
 
                     chance = chance.New();
                 }
-                if (saveCounter > 0)
-                {
-                    Log.Debug($"Saving {saveCounter.ToString()} categories.");
-                    await context.SaveChangesAsync();
-                }
 
                 categoriesCount = context.Categories.Count();
-
-                Log.Debug($"{categoriesCount.ToString()} categories already saved.");
             }
 
             Log.Debug("Done seed categories.");
@@ -154,7 +135,6 @@ namespace Store.Infrastructures.Data.Seeds
             Log.Debug($"Seed {inserts.ToString()} products.");
 
             Chance chance = new Chance();
-            int categoriesCount = context.Categories.Count();
             int productsCount = context.Products.Count();
             while (productsCount < inserts)
             {
@@ -170,7 +150,7 @@ namespace Store.Infrastructures.Data.Seeds
                         Value = Convert.ToDecimal(chance.Double(0, 250)),
                         RegistrationDate = chance.Date(0, 0, 0, 2010, 2018),
                         IsVisible = chance.Bool(),
-                        CategoryID = chance.Integer(1, categoriesCount)
+                        CategoryID = chance.Integer(1, 50)
                     };
 
                     if (product.Images == null)
@@ -186,26 +166,20 @@ namespace Store.Infrastructures.Data.Seeds
                     await context.Products.AddAsync(product);
                     saveCounter++;
 
-                    if (saveCounter == 1000)
+                    if (saveCounter == 1_000)
                     {
-                        Log.Debug($"Saving {saveCounter.ToString()} products.");
                         await context.SaveChangesAsync();
-                        productsCount = context.Products.Count();
-                        Log.Debug($"{productsCount.ToString()} products already saved.");
                         saveCounter = 0;
                     }
-
 
                     chance = chance.New();
                 }
                 if (saveCounter > 0)
                 {
-                    Log.Debug($"Saving {saveCounter.ToString()} products.");
                     await context.SaveChangesAsync();
                 }
 
                 productsCount = context.Products.Count();
-                Log.Debug($"{productsCount.ToString()} products already saved.");
             }
 
             Log.Debug("Done seed products.");
@@ -231,9 +205,8 @@ namespace Store.Infrastructures.Data.Seeds
 
                     await context.Customers.AddAsync(customer);
                     saveCounter++;
-                    if (saveCounter == 100)
+                    if (saveCounter == 1_000)
                     {
-                        Log.Debug($"Saving {saveCounter.ToString()} customers.");
                         await context.SaveChangesAsync();
                         saveCounter = 0;
                     }
@@ -243,12 +216,10 @@ namespace Store.Infrastructures.Data.Seeds
 
                 if (saveCounter > 0)
                 {
-                    Log.Debug($"Saving {saveCounter.ToString()} customers.");
                     await context.SaveChangesAsync();
                 }
 
                 customersCount = context.Customers.Count();
-                Log.Debug($"{customersCount.ToString()} customers already saved.");
             }
 
             Log.Debug("Done seed customers.");
