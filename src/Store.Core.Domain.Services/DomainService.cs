@@ -25,15 +25,15 @@ namespace Store.Core.Domain.Services
             var validateResult = EntityValidator.Validate(entity);
             if (!validateResult.IsValid)
             {
-                var innerExceptions = new List<Exception>();
+                var entityExceptions = new List<EntityException>();
 
                 foreach (var error in validateResult.Errors)
                 {
                     var errorMessage = string.Format(error.ErrorMessage, error.PropertyName);
-                    innerExceptions.Add(new BusinessException(errorMessage));
+                    entityExceptions.Add(new EntityException(error.PropertyName, errorMessage));
                 }
 
-                var exception = new BusinessException("Operation failed in entity validation!", innerExceptions);
+                var exception = new BusinessException("Operation failed in entity validation!", entityExceptions, null);
 
                 throw exception;
             }
@@ -44,15 +44,15 @@ namespace Store.Core.Domain.Services
             var validateResult = DomainValidator.Validate(entity);
             if (!validateResult.IsValid)
             {
-                var innerExceptions = new List<Exception>();
+                var domainExceptions = new List<DomainException>();
 
                 foreach (var error in validateResult.Errors)
                 {
                     var errorMessage = string.Format(error.ErrorMessage, error.PropertyName);
-                    innerExceptions.Add(new BusinessException(errorMessage));
+                    domainExceptions.Add(new DomainException(errorMessage));
                 }
 
-                var exception = new BusinessException("Operation failed in domain validation!", innerExceptions);
+                var exception = new BusinessException("Operation failed in domain validation!", null, domainExceptions);
 
                 throw exception;
             }
