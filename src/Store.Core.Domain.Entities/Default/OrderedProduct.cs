@@ -12,6 +12,7 @@ namespace Store.Core.Domain.Entities.Default
         public decimal Value { get; set; }
         public DateTime RegisteredAt { get; set; }
         public int ProductId { get; set; }
+        public int OrderId { get; set; }
         public Product Product { get; set; }
         public Order Order { get; set; }
         public OrderedProduct()
