@@ -26,7 +26,7 @@ namespace Store.Presentations.WebAPI.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(512)");
 
                     b.HasKey("Id");
 
