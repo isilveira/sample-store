@@ -20,7 +20,7 @@ namespace Store.Presentations.WebAPI.Migrations
 
             modelBuilder.Entity("Store.Core.Domain.Entities.Default.Sample", b =>
                 {
-                    b.Property<int>("SampleID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -28,7 +28,7 @@ namespace Store.Presentations.WebAPI.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("SampleID");
+                    b.HasKey("Id");
 
                     b.ToTable("Samples");
                 });
