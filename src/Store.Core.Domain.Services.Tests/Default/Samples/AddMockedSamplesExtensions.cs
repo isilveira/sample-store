@@ -1,11 +1,11 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
-using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+﻿using Store.Core.Domain.Entities.Default;
+using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BAYSOFT.Core.Domain.Services.Tests.Default.Samples
+namespace Store.Core.Domain.Services.Tests.Default.Samples
 {
     internal static class AddMockedSamplesExtensions
     {

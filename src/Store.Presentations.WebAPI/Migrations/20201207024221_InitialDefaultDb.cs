@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace BAYSOFT.Presentations.WebAPI.Migrations
+namespace Store.Presentations.WebAPI.Migrations
 {
     public partial class InitialDefaultDb : Migration
     {

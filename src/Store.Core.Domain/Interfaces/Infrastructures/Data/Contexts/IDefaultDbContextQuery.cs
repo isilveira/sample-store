@@ -1,7 +1,7 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
+﻿using Store.Core.Domain.Entities.Default;
 using Microsoft.EntityFrameworkCore;
 
-namespace BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts
+namespace Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts
 {
     public interface IDefaultDbContextQuery
     {

@@ -1,7 +1,7 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
+﻿using Store.Core.Domain.Entities.Default;
 using FluentValidation;
 
-namespace BAYSOFT.Core.Domain.Validations.EntityValidations.Default
+namespace Store.Core.Domain.Validations.EntityValidations.Default
 {
     public class SampleValidator : AbstractValidator<Sample>
     {

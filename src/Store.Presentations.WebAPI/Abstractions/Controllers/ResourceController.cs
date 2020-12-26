@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BAYSOFT.Presentations.WebAPI.Abstractions.Controllers
+namespace Store.Presentations.WebAPI.Abstractions.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

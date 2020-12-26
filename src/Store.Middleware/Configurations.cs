@@ -1,4 +1,4 @@
-﻿using BAYSOFT.Middleware.AddServices;
+﻿using Store.Middleware.AddServices;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +7,7 @@ using ModelWrapper.Middleware;
 using System;
 using System.Reflection;
 
-namespace BAYSOFT.Middleware
+namespace Store.Middleware
 {
     public static class Configurations
     {

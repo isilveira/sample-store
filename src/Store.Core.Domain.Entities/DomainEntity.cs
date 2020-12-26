@@ -1,4 +1,4 @@
-﻿namespace BAYSOFT.Core.Domain.Entities
+﻿namespace Store.Core.Domain.Entities
 {
     public class DomainEntity<TIdType> : DomainEntity
     {

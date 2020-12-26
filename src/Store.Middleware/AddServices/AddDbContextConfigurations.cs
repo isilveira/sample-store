@@ -1,11 +1,11 @@
-﻿using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
-using BAYSOFT.Infrastructures.Data.Contexts;
+﻿using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+using Store.Infrastructures.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace BAYSOFT.Middleware.AddServices
+namespace Store.Middleware.AddServices
 {
     public static class AddDbContextConfigurations
     {

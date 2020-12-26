@@ -1,4 +1,4 @@
-﻿namespace BAYSOFT.Core.Domain.Entities.Default
+﻿namespace Store.Core.Domain.Entities.Default
 {
     public class Sample : DomainEntity<int>
     {

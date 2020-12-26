@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using ModelWrapper;
 
-namespace BAYSOFT.Core.Application
+namespace Store.Core.Application
 {
     public abstract class ApplicationRequest<TEntity, TResponse> : WrapRequest<TEntity>, IRequest<TResponse>
         where TEntity : class

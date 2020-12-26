@@ -1,8 +1,8 @@
-﻿using BAYSOFT.Core.Domain.Interfaces.Services.Default.Samples;
-using BAYSOFT.Core.Domain.Services.Default.Samples;
+﻿using Store.Core.Domain.Interfaces.Services.Default.Samples;
+using Store.Core.Domain.Services.Default.Samples;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BAYSOFT.Middleware.AddServices
+namespace Store.Middleware.AddServices
 {
     public static class AddDomainServicesConfigurations
     {

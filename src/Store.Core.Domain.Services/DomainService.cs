@@ -1,13 +1,13 @@
-﻿using BAYSOFT.Core.Domain.Entities;
-using BAYSOFT.Core.Domain.Exceptions;
-using BAYSOFT.Core.Domain.Interfaces.Services;
+﻿using Store.Core.Domain.Entities;
+using Store.Core.Domain.Exceptions;
+using Store.Core.Domain.Interfaces.Services;
 using FluentValidation;
 using NetDevPack.Specification;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Domain.Services
+namespace Store.Core.Domain.Services
 {
     public abstract class DomainService<TEntity> : IDomainService<TEntity>
         where TEntity : DomainEntity

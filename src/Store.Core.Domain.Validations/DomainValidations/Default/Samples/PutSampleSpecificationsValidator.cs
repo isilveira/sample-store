@@ -1,12 +1,12 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
-using BAYSOFT.Core.Domain.Validations.Specifications.Default.Samples;
+﻿using Store.Core.Domain.Entities.Default;
+using Store.Core.Domain.Validations.Specifications.Default.Samples;
 using NetDevPack.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Domain.Validations.DomainValidations.Default.Samples
+namespace Store.Core.Domain.Validations.DomainValidations.Default.Samples
 {
     public class PutSampleSpecificationsValidator : SpecValidator<Sample>
     {

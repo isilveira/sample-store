@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts
+namespace Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts
 {
     public interface IDefaultDbContext : IDefaultDbContextQuery
     {

@@ -1,6 +1,6 @@
 ﻿using ModelWrapper;
 
-namespace BAYSOFT.Core.Application
+namespace Store.Core.Application
 {
     public abstract class ApplicationResponse<TEntity> : WrapResponse<TEntity>
         where TEntity : class

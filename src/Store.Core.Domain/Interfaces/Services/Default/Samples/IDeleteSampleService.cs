@@ -1,6 +1,6 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
+﻿using Store.Core.Domain.Entities.Default;
 
-namespace BAYSOFT.Core.Domain.Interfaces.Services.Default.Samples
+namespace Store.Core.Domain.Interfaces.Services.Default.Samples
 {
     public interface IDeleteSampleService : IDomainService<Sample>
     {

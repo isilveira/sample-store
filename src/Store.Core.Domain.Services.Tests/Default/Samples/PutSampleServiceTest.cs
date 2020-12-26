@@ -1,13 +1,13 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
-using BAYSOFT.Core.Domain.Exceptions;
-using BAYSOFT.Core.Domain.Services.Default.Samples;
-using BAYSOFT.Core.Domain.Validations.DomainValidations.Default.Samples;
-using BAYSOFT.Core.Domain.Validations.EntityValidations.Default;
-using BAYSOFT.Core.Domain.Validations.Specifications.Default.Samples;
+﻿using Store.Core.Domain.Entities.Default;
+using Store.Core.Domain.Exceptions;
+using Store.Core.Domain.Services.Default.Samples;
+using Store.Core.Domain.Validations.DomainValidations.Default.Samples;
+using Store.Core.Domain.Validations.EntityValidations.Default;
+using Store.Core.Domain.Validations.Specifications.Default.Samples;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Domain.Services.Tests.Default.Samples
+namespace Store.Core.Domain.Services.Tests.Default.Samples
 {
 
     [TestClass]

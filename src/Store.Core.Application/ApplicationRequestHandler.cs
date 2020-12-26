@@ -1,9 +1,9 @@
-﻿using BAYSOFT.Core.Domain.Entities;
+﻿using Store.Core.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Application
+namespace Store.Core.Application
 {
     public abstract class ApplicationRequestHandler<TEntity, TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
         where TRequest : ApplicationRequest<TEntity, TResponse>

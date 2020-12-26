@@ -1,7 +1,7 @@
 using ModelWrapper;
-using BAYSOFT.Core.Domain.Entities.Default;
+using Store.Core.Domain.Entities.Default;
 
-namespace BAYSOFT.Core.Application.Default.Samples.Queries.GetSampleByID
+namespace Store.Core.Application.Default.Samples.Queries.GetSampleByID
 {
     public class GetSampleByIDQueryResponse : ApplicationResponse<Sample>
     {

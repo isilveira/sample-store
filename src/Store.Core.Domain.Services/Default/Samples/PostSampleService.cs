@@ -1,11 +1,11 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
-using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
-using BAYSOFT.Core.Domain.Interfaces.Services.Default.Samples;
-using BAYSOFT.Core.Domain.Validations.DomainValidations.Default.Samples;
-using BAYSOFT.Core.Domain.Validations.EntityValidations.Default;
+﻿using Store.Core.Domain.Entities.Default;
+using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+using Store.Core.Domain.Interfaces.Services.Default.Samples;
+using Store.Core.Domain.Validations.DomainValidations.Default.Samples;
+using Store.Core.Domain.Validations.EntityValidations.Default;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Domain.Services.Default.Samples
+namespace Store.Core.Domain.Services.Default.Samples
 {
     public class PostSampleService : DomainService<Sample>, IPostSampleService
     {

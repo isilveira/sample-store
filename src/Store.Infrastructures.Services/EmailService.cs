@@ -1,6 +1,6 @@
-﻿using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Services;
+﻿using Store.Core.Domain.Interfaces.Infrastructures.Services;
 
-namespace BAYSOFT.Infrastructures.Services
+namespace Store.Infrastructures.Services
 {
     public class EmailService : IEmailService
     {

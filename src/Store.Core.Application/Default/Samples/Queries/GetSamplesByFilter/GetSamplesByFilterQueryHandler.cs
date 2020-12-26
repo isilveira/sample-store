@@ -1,13 +1,13 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ModelWrapper.Extensions.FullSearch;
-using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
 using System.Threading;
 using System.Threading.Tasks;
-using BAYSOFT.Core.Domain.Resources;
+using Store.Core.Domain.Resources;
 using Microsoft.Extensions.Localization;
 
-namespace BAYSOFT.Core.Application.Default.Samples.Queries.GetSamplesByFilter
+namespace Store.Core.Application.Default.Samples.Queries.GetSamplesByFilter
 {
     public class GetSamplesByFilterQueryHandler : IRequestHandler<GetSamplesByFilterQuery, GetSamplesByFilterQueryResponse>
     {

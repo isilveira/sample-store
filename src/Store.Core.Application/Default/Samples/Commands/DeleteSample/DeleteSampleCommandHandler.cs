@@ -1,14 +1,14 @@
-using BAYSOFT.Core.Domain.Entities.Default;
-using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
-using BAYSOFT.Core.Domain.Interfaces.Services.Default.Samples;
-using BAYSOFT.Core.Domain.Resources;
+using Store.Core.Domain.Entities.Default;
+using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+using Store.Core.Domain.Interfaces.Services.Default.Samples;
+using Store.Core.Domain.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Application.Default.Samples.Commands.DeleteSample
+namespace Store.Core.Application.Default.Samples.Commands.DeleteSample
 {
     public class DeleteSampleCommandHandler : ApplicationRequestHandler<Sample, DeleteSampleCommand, DeleteSampleCommandResponse>
     {

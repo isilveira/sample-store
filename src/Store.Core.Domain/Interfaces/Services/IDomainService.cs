@@ -1,7 +1,7 @@
-﻿using BAYSOFT.Core.Domain.Entities;
+﻿using Store.Core.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Core.Domain.Interfaces.Services
+namespace Store.Core.Domain.Interfaces.Services
 {
     public interface IDomainService<TEntity>
         where TEntity : DomainEntity

@@ -1,15 +1,15 @@
-﻿using BAYSOFT.Core.Application.Default.Samples.Commands.DeleteSample;
-using BAYSOFT.Core.Application.Default.Samples.Commands.PatchSample;
-using BAYSOFT.Core.Application.Default.Samples.Commands.PostSample;
-using BAYSOFT.Core.Application.Default.Samples.Commands.PutSample;
-using BAYSOFT.Core.Application.Default.Samples.Queries.GetSampleByID;
-using BAYSOFT.Core.Application.Default.Samples.Queries.GetSamplesByFilter;
-using BAYSOFT.Presentations.WebAPI.Abstractions.Controllers;
+﻿using Store.Core.Application.Default.Samples.Commands.DeleteSample;
+using Store.Core.Application.Default.Samples.Commands.PatchSample;
+using Store.Core.Application.Default.Samples.Commands.PostSample;
+using Store.Core.Application.Default.Samples.Commands.PutSample;
+using Store.Core.Application.Default.Samples.Queries.GetSampleByID;
+using Store.Core.Application.Default.Samples.Queries.GetSamplesByFilter;
+using Store.Presentations.WebAPI.Abstractions.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BAYSOFT.Resources
+namespace Store.Resources
 {
     public class SamplesController : ResourceController
     {

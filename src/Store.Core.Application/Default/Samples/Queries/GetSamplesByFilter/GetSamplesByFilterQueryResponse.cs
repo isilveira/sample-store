@@ -1,7 +1,7 @@
 using ModelWrapper;
-using BAYSOFT.Core.Domain.Entities.Default;
+using Store.Core.Domain.Entities.Default;
 
-namespace BAYSOFT.Core.Application.Default.Samples.Queries.GetSamplesByFilter
+namespace Store.Core.Application.Default.Samples.Queries.GetSamplesByFilter
 {
     public class GetSamplesByFilterQueryResponse : ApplicationResponse<Sample>
     {

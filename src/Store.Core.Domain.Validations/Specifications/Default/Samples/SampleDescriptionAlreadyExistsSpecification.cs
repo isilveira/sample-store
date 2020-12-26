@@ -1,11 +1,11 @@
-﻿using BAYSOFT.Core.Domain.Entities.Default;
-using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+﻿using Store.Core.Domain.Entities.Default;
+using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
 using NetDevPack.Specification;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace BAYSOFT.Core.Domain.Validations.Specifications.Default.Samples
+namespace Store.Core.Domain.Validations.Specifications.Default.Samples
 {
     public class SampleDescriptionAlreadyExistsSpecification : Specification<Sample>
     {

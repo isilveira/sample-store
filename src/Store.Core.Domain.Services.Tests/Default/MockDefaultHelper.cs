@@ -1,7 +1,7 @@
-﻿using BAYSOFT.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+﻿using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
 using Moq;
 
-namespace BAYSOFT.Core.Domain.Services.Tests.Default
+namespace Store.Core.Domain.Services.Tests.Default
 {
     public static class MockDefaultHelper
     {
