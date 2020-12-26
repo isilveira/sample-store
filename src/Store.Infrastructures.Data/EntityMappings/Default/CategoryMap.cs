@@ -24,7 +24,8 @@ namespace Store.Infrastructures.Data.EntityMappings.Default
                 .HasColumnType("nvarchar(512)");
 
             builder
-                .Property<int>("RootCategoryId")
+                .Property<int?>("RootCategoryId")
+                .IsRequired(false)
                 .HasColumnType("int");
 
             builder
