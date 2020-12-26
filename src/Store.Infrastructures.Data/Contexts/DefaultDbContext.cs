@@ -1,6 +1,7 @@
 ﻿using Store.Core.Domain.Entities.Default;
 using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Store.Infrastructures.Data.EntityMappings.Default;
 
 namespace Store.Infrastructures.Data.Contexts
 {
@@ -22,6 +23,16 @@ namespace Store.Infrastructures.Data.Contexts
         public DefaultDbContext(DbContextOptions options) : base(options)
         {
             Database.Migrate();
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new SampleMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new ImageMap());
+            modelBuilder.ApplyConfiguration(new OrderedProductMap());
+            modelBuilder.ApplyConfiguration(new OrderMap());
+            modelBuilder.ApplyConfiguration(new ProductMap());
         }
     }
 }
