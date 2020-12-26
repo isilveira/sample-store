@@ -7,10 +7,11 @@ namespace Store.Core.Application.Default.Customers.Queries.GetCustomersByFilter
         public GetCustomersByFilterQuery()
         {
             ConfigKeys(x => x.Id);
-            
+
             // Configures supressed properties & response properties
-            //ConfigSuppressedProperties(x => x);
-            //ConfigSuppressedResponseProperties(x => x);  
+            ConfigSuppressedProperties(x => x.Orders);
+
+            ConfigSuppressedResponseProperties(x => x.Orders);
         }
     }
 }

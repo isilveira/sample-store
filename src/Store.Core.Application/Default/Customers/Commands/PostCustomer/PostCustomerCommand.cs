@@ -7,10 +7,11 @@ namespace Store.Core.Application.Default.Customers.Commands.PostCustomer
         public PostCustomerCommand()
         {
             ConfigKeys(x => x.Id);
-            
+
             // Configures supressed properties & response properties
-            //ConfigSuppressedProperties(x => x);
-            //ConfigSuppressedResponseProperties(x => x);       
+            ConfigSuppressedProperties(x => x.Orders);
+
+            ConfigSuppressedResponseProperties(x => x.Orders);
         }
     }
 }
