@@ -9,8 +9,11 @@ namespace Store.Core.Application.Default.Products.Commands.PatchProduct
             ConfigKeys(x => x.Id);
 
             // Configures supressed properties & response properties
-            //ConfigSuppressedProperties(x => x);
-            //ConfigSuppressedResponseProperties(x => x);
+            ConfigSuppressedProperties(x => x.Images);
+            ConfigSuppressedProperties(x => x.OrderedProducts);
+
+            ConfigSuppressedResponseProperties(x => x.Images);
+            ConfigSuppressedResponseProperties(x => x.OrderedProducts);
         }
     }
 }

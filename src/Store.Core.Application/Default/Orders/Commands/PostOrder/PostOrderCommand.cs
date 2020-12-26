@@ -7,10 +7,13 @@ namespace Store.Core.Application.Default.Orders.Commands.PostOrder
         public PostOrderCommand()
         {
             ConfigKeys(x => x.Id);
-            
+
             // Configures supressed properties & response properties
-            //ConfigSuppressedProperties(x => x);
-            //ConfigSuppressedResponseProperties(x => x);       
+            ConfigSuppressedProperties(x => x.Customer);
+            ConfigSuppressedProperties(x => x.OrderedProducts);
+
+            ConfigSuppressedResponseProperties(x => x.Customer);
+            ConfigSuppressedResponseProperties(x => x.OrderedProducts);
         }
     }
 }

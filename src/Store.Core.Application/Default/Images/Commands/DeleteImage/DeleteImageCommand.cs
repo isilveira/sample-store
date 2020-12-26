@@ -9,8 +9,9 @@ namespace Store.Core.Application.Default.Images.Commands.DeleteImage
             ConfigKeys(x => x.Id);
 
             // Configures supressed properties & response properties
-            //ConfigSuppressedProperties(x => x);
-            //ConfigSuppressedResponseProperties(x => x);
+            ConfigSuppressedProperties(x => x.Product);
+            
+            ConfigSuppressedResponseProperties(x => x.Product);
         }
     }
 }
