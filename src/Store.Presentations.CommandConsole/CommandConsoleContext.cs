@@ -17,8 +17,8 @@ namespace Store.Presentations.CommandConsole
             if(serviceProvider == null)
             {
                 serviceProvider = new ServiceCollection()
-                .AddMiddleware(GetConfiguration(), typeof(Program).GetTypeInfo().Assembly)
-                .BuildServiceProvider();
+                    .AddMiddleware(GetConfiguration(), typeof(Program).GetTypeInfo().Assembly)
+                    .BuildServiceProvider();
             }
 
             return serviceProvider;
