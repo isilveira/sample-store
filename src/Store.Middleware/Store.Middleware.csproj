@@ -23,7 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Store.Core.Application\Store.Core.Application.csproj" />
     <ProjectReference Include="..\Store.Core.Domain.Entities\Store.Core.Domain.Entities.csproj" />
-    <ProjectReference Include="..\Store.Core.Domain.Services.Tests\Store.Core.Domain.Services.Tests.csproj" />
     <ProjectReference Include="..\Store.Core.Domain.Services\Store.Core.Domain.Services.csproj" />
     <ProjectReference Include="..\Store.Core.Domain.Validations\Store.Core.Domain.Validations.csproj" />
     <ProjectReference Include="..\Store.Core.Domain\Store.Core.Domain.csproj" />

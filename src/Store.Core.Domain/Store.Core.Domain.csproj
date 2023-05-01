@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\baysoft-abstractions\src\BAYSOFT.Abstractions\BAYSOFT.Abstractions.csproj" />
     <ProjectReference Include="..\Store.Core.Domain.Entities\Store.Core.Domain.Entities.csproj" />
   </ItemGroup>
 
@@ -42,6 +43,41 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contexts\Default\Entities\Sample\Validations\" />
+    <Folder Include="Contexts\Default\Entities\Sample\Specifications\" />
+    <Folder Include="Contexts\Default\Entities\Sample\Services\" />
+    <Folder Include="Contexts\Default\Entities\Sample\Resources\" />
+    <Folder Include="Contexts\Default\Interfaces\" />
+    <Folder Include="Contexts\Default\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Category\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Category\Services\" />
+    <Folder Include="Contexts\Store\Entities\Category\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Category\Validations\" />
+    <Folder Include="Contexts\Store\Entities\Customer\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Customer\Services\" />
+    <Folder Include="Contexts\Store\Entities\Customer\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Customer\Validations\" />
+    <Folder Include="Contexts\Store\Entities\Image\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Image\Services\" />
+    <Folder Include="Contexts\Store\Entities\Image\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Image\Validations\" />
+    <Folder Include="Contexts\Store\Entities\OrderedProduct\Resources\" />
+    <Folder Include="Contexts\Store\Entities\OrderedProduct\Services\" />
+    <Folder Include="Contexts\Store\Entities\OrderedProduct\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\OrderedProduct\Validations\" />
+    <Folder Include="Contexts\Store\Entities\Order\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Order\Services\" />
+    <Folder Include="Contexts\Store\Entities\Order\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Order\Validations\" />
+    <Folder Include="Contexts\Store\Entities\Product\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Product\Services\" />
+    <Folder Include="Contexts\Store\Entities\Product\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Product\Validations\" />
+    <Folder Include="Contexts\Store\Interfaces\" />
+    <Folder Include="Contexts\Store\Resources\" />
   </ItemGroup>
 
 </Project>
