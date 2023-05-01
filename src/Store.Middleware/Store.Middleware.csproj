@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,9 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Store.Core.Application\Store.Core.Application.csproj" />
-    <ProjectReference Include="..\Store.Core.Domain.Entities\Store.Core.Domain.Entities.csproj" />
-    <ProjectReference Include="..\Store.Core.Domain.Services\Store.Core.Domain.Services.csproj" />
-    <ProjectReference Include="..\Store.Core.Domain.Validations\Store.Core.Domain.Validations.csproj" />
     <ProjectReference Include="..\Store.Core.Domain\Store.Core.Domain.csproj" />
     <ProjectReference Include="..\Store.Infrastructures.Data\Store.Infrastructures.Data.csproj" />
     <ProjectReference Include="..\Store.Infrastructures.Services\Store.Infrastructures.Services.csproj" />

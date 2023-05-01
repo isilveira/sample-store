@@ -1,28 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\baysoft-abstractions\src\BAYSOFT.Abstractions\BAYSOFT.Abstractions.csproj" />
-    <ProjectReference Include="..\Store.Core.Domain.Entities\Store.Core.Domain.Entities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Resources\EntitiesDefault.Designer.cs">
+    <Compile Update="Contexts\Default\Entities\Samples\Resources\EntitiesSamples.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesSamples.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Contexts\Default\Resources\EntitiesDefault.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EntitiesDefault.resx</DependentUpon>
@@ -35,7 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\EntitiesDefault.resx">
+    <EmbeddedResource Update="Contexts\Default\Entities\Samples\Resources\EntitiesSamples.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesSamples.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Default\Resources\EntitiesDefault.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesDefault.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -46,38 +43,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contexts\Default\Entities\Sample\Validations\" />
-    <Folder Include="Contexts\Default\Entities\Sample\Specifications\" />
-    <Folder Include="Contexts\Default\Entities\Sample\Services\" />
-    <Folder Include="Contexts\Default\Entities\Sample\Resources\" />
-    <Folder Include="Contexts\Default\Interfaces\" />
-    <Folder Include="Contexts\Default\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Category\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Category\Services\" />
-    <Folder Include="Contexts\Store\Entities\Category\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Category\Validations\" />
-    <Folder Include="Contexts\Store\Entities\Customer\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Customer\Services\" />
-    <Folder Include="Contexts\Store\Entities\Customer\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Customer\Validations\" />
-    <Folder Include="Contexts\Store\Entities\Image\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Image\Services\" />
-    <Folder Include="Contexts\Store\Entities\Image\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Image\Validations\" />
-    <Folder Include="Contexts\Store\Entities\OrderedProduct\Resources\" />
-    <Folder Include="Contexts\Store\Entities\OrderedProduct\Services\" />
-    <Folder Include="Contexts\Store\Entities\OrderedProduct\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\OrderedProduct\Validations\" />
-    <Folder Include="Contexts\Store\Entities\Order\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Order\Services\" />
-    <Folder Include="Contexts\Store\Entities\Order\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Order\Validations\" />
-    <Folder Include="Contexts\Store\Entities\Product\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Product\Services\" />
-    <Folder Include="Contexts\Store\Entities\Product\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Product\Validations\" />
-    <Folder Include="Contexts\Store\Interfaces\" />
+    <Folder Include="Contexts\Default\Entities\Samples\Services\UpdateSample\" />
+    <Folder Include="Contexts\Store\Entities\Categories\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Categories\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Customers\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Customers\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Images\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Images\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\OrderedProducts\Resources\" />
+    <Folder Include="Contexts\Store\Entities\OrderedProducts\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Orders\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Orders\Specifications\" />
+    <Folder Include="Contexts\Store\Entities\Products\Resources\" />
+    <Folder Include="Contexts\Store\Entities\Products\Specifications\" />
     <Folder Include="Contexts\Store\Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\baysoft-abstractions\src\BAYSOFT.Abstractions\BAYSOFT.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
