@@ -1,9 +1,9 @@
-using Store.Core.Domain.Entities.Default;
-using NetDevPack.Specification;
+﻿using BAYSOFT.Abstractions.Core.Domain.Entities.Validations;
+using Store.Core.Domain.Contexts.Store.Entities.Categories.Entity;
 
-namespace Store.Core.Domain.Validations.DomainValidations.Default.Categories
+namespace Store.Core.Domain.Contexts.Store.Entities.Categories.Validations.DomainValidations
 {
-    public class DeleteCategorySpecificationsValidator : SpecValidator<Category>
+    public class DeleteCategorySpecificationsValidator : DomainValidator<Category>
     {
         public DeleteCategorySpecificationsValidator()
         {
