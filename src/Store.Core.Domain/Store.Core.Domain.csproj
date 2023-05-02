@@ -20,6 +20,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>EntitiesDefault.resx</DependentUpon>
     </Compile>
+    <Compile Update="Contexts\Store\Entities\Categories\Resources\EntitiesCategories.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesCategories.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Contexts\Store\Entities\Customers\Resources\EntitiesCustomers.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesCustomers.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Contexts\Store\Resources\EntitiesStore.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesStore.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Messages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -36,6 +51,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesDefault.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Store\Entities\Categories\Resources\EntitiesCategories.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesCategories.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Store\Entities\Customers\Resources\EntitiesCustomers.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesCustomers.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Store\Resources\EntitiesStore.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesStore.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
@@ -43,11 +70,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contexts\Default\Entities\Samples\Services\UpdateSample\" />
-    <Folder Include="Contexts\Store\Entities\Categories\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Categories\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Customers\Resources\" />
-    <Folder Include="Contexts\Store\Entities\Customers\Specifications\" />
     <Folder Include="Contexts\Store\Entities\Images\Resources\" />
     <Folder Include="Contexts\Store\Entities\Images\Specifications\" />
     <Folder Include="Contexts\Store\Entities\OrderedProducts\Resources\" />
@@ -56,7 +78,8 @@
     <Folder Include="Contexts\Store\Entities\Orders\Specifications\" />
     <Folder Include="Contexts\Store\Entities\Products\Resources\" />
     <Folder Include="Contexts\Store\Entities\Products\Specifications\" />
-    <Folder Include="Contexts\Store\Resources\" />
+    <Folder Include="Interfaces\Infrastructures\Data\" />
+    <Folder Include="Interfaces\Services\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -115,12 +115,6 @@
   <data name="{0} is required!" xml:space="preserve">
     <value>{0} is required!</value>
   </data>
-  <data name="{0} must have a maximum of 100 characters!" xml:space="preserve">
-    <value>{0} must have a maximum of 100 characters!</value>
-  </data>
-  <data name="{0} must have at least 3 characters!" xml:space="preserve">
-    <value>{0} must have at least 3 characters!</value>
-  </data>
   <data name="A register with this description already exists!" xml:space="preserve">
     <value>A register with this description already exists!</value>
   </data>
@@ -132,5 +126,11 @@
   </data>
   <data name="Operation failed in request validation!" xml:space="preserve">
     <value>Operation failed in request validation!</value>
+  </data>
+  <data name="{3} must have a maximum of {1} characters!" xml:space="preserve">
+    <value>{3} must have a maximum of {1} characters!</value>
+  </data>
+  <data name="{3} must have at least {0} characters!" xml:space="preserve">
+    <value>{3} must have at least {0} characters!</value>
   </data>
 </root>
