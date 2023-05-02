@@ -1,23 +1,23 @@
 ﻿using BAYSOFT.Abstractions.Core.Domain.Entities.Specifications;
 using Store.Core.Domain.Contexts.Default.Entities.Samples.Entity;
-using Store.Core.Domain.Interfaces.Infrastructures.Data.Contexts;
+using Store.Core.Domain.Contexts.Default.Interfaces.Infrastructures.Data;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Store.Core.Domain.Validations.Specifications.Default.Samples
+namespace Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.Specifications.Default.Samples
 {
     public class SampleDescriptionAlreadyExistsSpecification : DomainSpecification<Sample>
     {
-        private IDefaultDbContextQuery Context { get; set; }
-        public SampleDescriptionAlreadyExistsSpecification(IDefaultDbContextQuery context)
+        private IDeafultDbContextReader Reader { get; set; }
+        public SampleDescriptionAlreadyExistsSpecification(IDeafultDbContextReader reader)
         {
-            Context = context;
+            Reader = reader;
         }
 
         public override Expression<Func<Sample, bool>> ToExpression()
         {
-            return sample => Context.Samples.Any(x => x.Description == sample.Description && x.Id != sample.Id);
+            return sample => Reader.Query<Sample>().Any(x => x.Description == sample.Description && x.Id != sample.Id);
         }
     }
 }

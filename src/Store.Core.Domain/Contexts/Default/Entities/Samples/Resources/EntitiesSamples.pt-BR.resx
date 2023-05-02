@@ -120,4 +120,7 @@
   <data name="Description" xml:space="preserve">
     <value>Descrição</value>
   </data>
+  <data name="A register with this description already exists!" xml:space="preserve">
+    <value>Já existe um registo com esta descrição!</value>
+  </data>
 </root>

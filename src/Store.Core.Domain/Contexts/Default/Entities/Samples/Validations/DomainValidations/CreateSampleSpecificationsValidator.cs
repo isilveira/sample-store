@@ -1,6 +1,6 @@
 ﻿using BAYSOFT.Abstractions.Core.Domain.Entities.Validations;
 using Store.Core.Domain.Contexts.Default.Entities.Samples.Entity;
-using Store.Core.Domain.Validations.Specifications.Default.Samples;
+using Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.Specifications.Default.Samples;
 
 namespace Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.DomainValidations
 {
