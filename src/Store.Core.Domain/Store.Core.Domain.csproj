@@ -30,6 +30,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>EntitiesCustomers.resx</DependentUpon>
     </Compile>
+    <Compile Update="Contexts\Store\Entities\Images\Resources\EntitiesImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Contexts\Store\Resources\EntitiesStore.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -59,6 +64,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesCustomers.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Store\Entities\Images\Resources\EntitiesImages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Contexts\Store\Resources\EntitiesStore.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesStore.Designer.cs</LastGenOutput>
@@ -70,7 +79,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contexts\Store\Entities\Images\Resources\" />
     <Folder Include="Contexts\Store\Entities\Images\Specifications\" />
     <Folder Include="Contexts\Store\Entities\OrderedProducts\Resources\" />
     <Folder Include="Contexts\Store\Entities\OrderedProducts\Specifications\" />

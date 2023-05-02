@@ -3,9 +3,9 @@ using Store.Core.Domain.Contexts.Store.Entities.Images.Entity;
 
 namespace Store.Core.Domain.Contexts.Store.Entities.Images.Validations.DomainValidations
 {
-    public class DeleteImageSpecificationsValidator : DomainValidator<Image>
+    public class CreateImageSpecificationsValidator : DomainValidator<Image>
     {
-        public DeleteImageSpecificationsValidator()
+        public CreateImageSpecificationsValidator()
         {
         }
     }
