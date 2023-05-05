@@ -126,6 +126,24 @@ namespace Store.Core.Domain.Contexts.Store.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Ordered product.
         /// </summary>
+        public static string Ordered_Product {
+            get {
+                return ResourceManager.GetString("Ordered Product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordered products.
+        /// </summary>
+        public static string Ordered_Products {
+            get {
+                return ResourceManager.GetString("Ordered Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordered product.
+        /// </summary>
         public static string OrderedProduct {
             get {
                 return ResourceManager.GetString("OrderedProduct", resourceCulture);

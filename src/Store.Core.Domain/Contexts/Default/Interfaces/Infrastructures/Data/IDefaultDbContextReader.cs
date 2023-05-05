@@ -2,7 +2,7 @@
 
 namespace Store.Core.Domain.Contexts.Default.Interfaces.Infrastructures.Data
 {
-    public interface IDeafultDbContextReader : IReader
+    public interface IDefaultDbContextReader : IReader
     {
 
     }

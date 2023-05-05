@@ -123,4 +123,7 @@
   <data name="A register with this description already exists!" xml:space="preserve">
     <value>Já existe um registo com esta descrição!</value>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identificador da amostra</value>
+  </data>
 </root>

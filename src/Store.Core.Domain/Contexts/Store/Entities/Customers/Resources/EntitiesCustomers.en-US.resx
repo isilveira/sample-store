@@ -129,4 +129,13 @@
   <data name="RegisteredAt" xml:space="preserve">
     <value>Registered at</value>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Customer identification</value>
+  </data>
+  <data name="Registered At" xml:space="preserve">
+    <value>Registered at</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
 </root>

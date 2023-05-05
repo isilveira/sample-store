@@ -123,4 +123,13 @@
   <data name="MimeType" xml:space="preserve">
     <value>Tipo de mídia</value>
   </data>
+  <data name="Mime Type" xml:space="preserve">
+    <value>Tipo de mídia</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identificador da imagem</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Produto</value>
+  </data>
 </root>

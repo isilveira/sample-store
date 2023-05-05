@@ -15,7 +15,7 @@ namespace Store.Middleware
         {
             services.AddLocalization();
 
-            services.AddDbContexts(configuration, presentationAssembly);
+            services.AddDbContexts(configuration);
             services.AddSpecifications();
             services.AddEntityValidations();
             services.AddDomainValidations();
@@ -23,7 +23,10 @@ namespace Store.Middleware
 
             var assembly = AppDomain.CurrentDomain.Load("Store.Core.Application");
 
-            services.AddMediatR(assembly);
+
+            var assemblyApplication = AppDomain.CurrentDomain.Load("Store.Core.Application");
+            var assemblyDomain = AppDomain.CurrentDomain.Load("Store.Core.Domain");
+            services.AddMediatR(options => options.RegisterServicesFromAssemblies(assemblyApplication, assemblyDomain));
 
             services.AddModelWrapper()
                 .AddDefaultReturnedCollectionSize(10)

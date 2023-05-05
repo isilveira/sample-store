@@ -103,4 +103,7 @@
   <data name="A register with this description already exists!" xml:space="preserve">
     <value>A register with this description already exists!</value>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Sample Id</value>
+  </data>
 </root>

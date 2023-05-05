@@ -103,4 +103,13 @@
   <data name="MimeType" xml:space="preserve">
     <value>MIME type</value>
   </data>
+  <data name="Mime Type" xml:space="preserve">
+    <value>MIME type</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Image id</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
 </root>

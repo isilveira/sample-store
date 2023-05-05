@@ -5,26 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="9.0.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Localization" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Localization.Routing" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.1" />
-    <PackageReference Include="ModelWrapper" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Store.Core.Application\Store.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\ModelWrapper\src\ModelWrapper\ModelWrapper.csproj" />
+    <ProjectReference Include="..\Store.Core.Application\Store.Core.Application.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
     <ProjectReference Include="..\Store.Core.Domain\Store.Core.Domain.csproj" />
     <ProjectReference Include="..\Store.Infrastructures.Data\Store.Infrastructures.Data.csproj" />
-    <ProjectReference Include="..\Store.Infrastructures.Services\Store.Infrastructures.Services.csproj" />
+    <ProjectReference Include="..\Store.Infrastructures.Services\Store.Infrastructures.Services.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>

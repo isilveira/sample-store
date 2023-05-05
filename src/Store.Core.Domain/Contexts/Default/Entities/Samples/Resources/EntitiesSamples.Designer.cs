@@ -61,11 +61,29 @@ namespace Store.Core.Domain.Contexts.Default.Entities.Samples.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A register with this description already exists!.
+        /// </summary>
+        public static string A_register_with_this_description_already_exists_ {
+            get {
+                return ResourceManager.GetString("A register with this description already exists!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample Id.
+        /// </summary>
+        public static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
             }
         }
     }

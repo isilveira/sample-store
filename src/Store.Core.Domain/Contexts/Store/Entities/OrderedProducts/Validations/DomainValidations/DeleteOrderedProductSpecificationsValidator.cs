@@ -1,9 +1,9 @@
-using Store.Core.Domain.Entities.Default;
-using NetDevPack.Specification;
+﻿using BAYSOFT.Abstractions.Core.Domain.Entities.Validations;
+using Store.Core.Domain.Contexts.Store.Entities.OrderedProducts.Entity;
 
-namespace Store.Core.Domain.Validations.DomainValidations.Default.OrderedProducts
+namespace Store.Core.Domain.Contexts.Store.Entities.OrderedProducts.Validations.DomainValidations
 {
-    public class DeleteOrderedProductSpecificationsValidator : SpecValidator<OrderedProduct>
+    public class DeleteOrderedProductSpecificationsValidator : DomainValidator<OrderedProduct>
     {
         public DeleteOrderedProductSpecificationsValidator()
         {

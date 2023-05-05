@@ -9,8 +9,8 @@ namespace Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.Specif
 {
     public class SampleDescriptionAlreadyExistsSpecification : DomainSpecification<Sample>
     {
-        private IDeafultDbContextReader Reader { get; set; }
-        public SampleDescriptionAlreadyExistsSpecification(IDeafultDbContextReader reader)
+        private IDefaultDbContextReader Reader { get; set; }
+        public SampleDescriptionAlreadyExistsSpecification(IDefaultDbContextReader reader)
         {
             Reader = reader;
         }

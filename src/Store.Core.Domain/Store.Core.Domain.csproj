@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Contexts\Default\Entities\Samples\Resources\EntitiesSamples.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -34,6 +29,21 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EntitiesImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Contexts\Store\Entities\OrderedProducts\Resources\EntitiesOrderedProducts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesOrderedProducts.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Contexts\Store\Entities\Orders\Resources\EntitiesOrders.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesOrders.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Contexts\Store\Entities\Products\Resources\EntitiesProducts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesProducts.resx</DependentUpon>
     </Compile>
     <Compile Update="Contexts\Store\Resources\EntitiesStore.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -68,6 +78,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesImages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Store\Entities\OrderedProducts\Resources\EntitiesOrderedProducts.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesOrderedProducts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Store\Entities\Orders\Resources\EntitiesOrders.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesOrders.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Contexts\Store\Entities\Products\Resources\EntitiesProducts.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntitiesProducts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Contexts\Store\Resources\EntitiesStore.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesStore.Designer.cs</LastGenOutput>
@@ -80,11 +102,8 @@
 
   <ItemGroup>
     <Folder Include="Contexts\Store\Entities\Images\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\OrderedProducts\Resources\" />
     <Folder Include="Contexts\Store\Entities\OrderedProducts\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Orders\Resources\" />
     <Folder Include="Contexts\Store\Entities\Orders\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Products\Resources\" />
     <Folder Include="Contexts\Store\Entities\Products\Specifications\" />
     <Folder Include="Interfaces\Infrastructures\Data\" />
     <Folder Include="Interfaces\Services\" />

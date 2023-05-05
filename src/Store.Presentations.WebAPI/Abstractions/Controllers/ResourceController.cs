@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using BAYSOFT.Abstractions.Core.Application;
+using BAYSOFT.Abstractions.Core.Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using ModelWrapper;
@@ -19,58 +21,25 @@ namespace Store.Presentations.WebAPI.Abstractions.Controllers
         private IMediator _mediator;
         protected IMediator Mediator => _mediator ?? (_mediator = HttpContext.RequestServices.GetService<IMediator>());
         public async Task<ActionResult<TResponse>> Send<TEntity, TResponse>(ApplicationRequest<TEntity, TResponse> request, CancellationToken cancellationToken = default(CancellationToken))
-            where TEntity : class
+            where TEntity : DomainEntity
             where TResponse : ApplicationResponse<TEntity>
         {
-            try
-            {
-                return Ok(await Mediator.Send(request, cancellationToken));
-            }
-            catch (BusinessException bex)
-            {
-                return BadRequest(new WrapResponse(400, 4001001, request.RequestObject, MapBusinessExceptionToDictionary(bex), bex.Message, 0));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new WrapResponse(400, 4001001, request.RequestObject, ex.InnerException, ex.Message, 0));
-            }
+            return WrapResult(await Mediator.Send(request, cancellationToken));
         }
 
         public async Task<TResponse> SendRequest<TEntity, TResponse>(ApplicationRequest<TEntity, TResponse> request, CancellationToken cancellationToken = default(CancellationToken))
-            where TEntity : class
+            where TEntity : DomainEntity
             where TResponse : ApplicationResponse<TEntity>
         {
             return await Mediator.Send(request, cancellationToken);
         }
-
-        private Dictionary<string, object> MapBusinessExceptionToDictionary(BusinessException businessException)
+        private ActionResult WrapResult(WrapResponse response)
         {
-            Dictionary<string, object> exceptionDictionary = new Dictionary<string, object>();
+            var objectResult = new ObjectResult(response);
 
-            exceptionDictionary.Add("message", businessException.Message);
-            if (businessException.EntityExceptions != null && businessException.EntityExceptions.Count > 0)
-            {
-                Dictionary<string, object> entityExceptionDictionary = new Dictionary<string, object>();
+            objectResult.StatusCode = response.StatusCode;
 
-                foreach (var group in businessException.EntityExceptions.GroupBy(x => x.SourceProperty))
-                {
-                    var exceptions = businessException.EntityExceptions.Where(exception => exception.SourceProperty.Equals(group.Key)).ToList();
-                    entityExceptionDictionary.Add(group.Key, exceptions.Select(x => x.Message).ToArray());
-                }
-
-                exceptionDictionary.Add("entityExceptions", entityExceptionDictionary);
-            }
-            if (businessException.DomainExceptions != null && businessException.DomainExceptions.Count > 0)
-            {
-                exceptionDictionary.Add(
-                    "domainExceptions",
-                    businessException.DomainExceptions
-                        .Select(exception => exception.Message)
-                        .ToArray()
-                );
-            }
-
-            return exceptionDictionary;
+            return objectResult;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Store.Infrastructures.Data.Contexts.Store
             Database.Migrate();
         }
 
-        public StoreDbContext(DbContextOptions options) : base(options)
+        public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
         {
             Database.Migrate();
         }

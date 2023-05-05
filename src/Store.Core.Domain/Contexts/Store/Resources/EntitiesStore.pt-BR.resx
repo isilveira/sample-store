@@ -153,4 +153,10 @@
   <data name="Products" xml:space="preserve">
     <value>Produtos</value>
   </data>
+  <data name="Ordered Product" xml:space="preserve">
+    <value>Produto encomendado</value>
+  </data>
+  <data name="Ordered Products" xml:space="preserve">
+    <value>Produtos encomendados</value>
+  </data>
 </root>

@@ -1,5 +1,5 @@
 ﻿using ModelWrapper.Extensions.GetModels;
-using Store.Core.Application.Default.Samples.Queries.GetSamplesByFilter;
+using Store.Core.Application.Contexts.Default.Samples.Queries.GetSamplesByFilter;
 using Store.Presentations.CommandConsole.Interfaces;
 using System;
 using System.Linq;

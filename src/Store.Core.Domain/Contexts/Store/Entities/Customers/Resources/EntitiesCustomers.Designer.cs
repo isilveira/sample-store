@@ -79,11 +79,38 @@ namespace Store.Core.Domain.Contexts.Store.Entities.Customers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customer id.
+        /// </summary>
+        public static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders.
+        /// </summary>
+        public static string Orders {
+            get {
+                return ResourceManager.GetString("Orders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registered at.
+        /// </summary>
+        public static string Registered_At {
+            get {
+                return ResourceManager.GetString("Registered At", resourceCulture);
             }
         }
         

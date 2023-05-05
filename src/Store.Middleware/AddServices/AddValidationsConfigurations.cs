@@ -1,13 +1,16 @@
-﻿using Store.Core.Domain.Validations.DomainValidations.Default.Samples;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.DomainValidations;
+using Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.EntityValidations.Default;
+using Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.Specifications.Default.Samples;
+using Store.Core.Domain.Contexts.Store.Entities.Categories.Validations.DomainValidations;
+using Store.Core.Domain.Contexts.Store.Entities.Categories.Validations.EntityValidations;
+using Store.Core.Domain.Contexts.Store.Entities.Customers.Specifications;
+using Store.Core.Domain.Contexts.Store.Entities.Customers.Validations.DomainValidations;
+using Store.Core.Domain.Contexts.Store.Entities.Images.Validations.DomainValidations;
+using Store.Core.Domain.Contexts.Store.Entities.OrderedProducts.Validations.DomainValidations;
+using Store.Core.Domain.Contexts.Store.Entities.Orders.Validations.DomainValidations;
+using Store.Core.Domain.Contexts.Store.Entities.Products.Validations.DomainValidations;
 using Store.Core.Domain.Validations.EntityValidations.Default;
-using Store.Core.Domain.Validations.Specifications.Default.Samples;
-using Microsoft.Extensions.DependencyInjection;
-using Store.Core.Domain.Validations.DomainValidations.Default.Categories;
-using Store.Core.Domain.Validations.DomainValidations.Default.Customers;
-using Store.Core.Domain.Validations.DomainValidations.Default.Images;
-using Store.Core.Domain.Validations.DomainValidations.Default.Orders;
-using Store.Core.Domain.Validations.DomainValidations.Default.OrderedProducts;
-using Store.Core.Domain.Validations.DomainValidations.Default.Products;
 
 namespace Store.Middleware.AddServices
 {
@@ -17,56 +20,52 @@ namespace Store.Middleware.AddServices
         {
             services.AddTransient<SampleDescriptionAlreadyExistsSpecification>();
 
+            services.AddTransient<CustomerEmailMustBeUniqueSpecification>();
+
             return services;
         }
         public static IServiceCollection AddEntityValidations(this IServiceCollection services)
         {
+            services.AddTransient<SampleValidator>();
+
             services.AddTransient<CategoryValidator>();
             services.AddTransient<CustomerValidator>();
             services.AddTransient<ImageValidator>();
             services.AddTransient<OrderValidator>();
             services.AddTransient<OrderedProductValidator>();
             services.AddTransient<ProductValidator>();
-            services.AddTransient<SampleValidator>();
 
             return services;
         }
         public static IServiceCollection AddDomainValidations(this IServiceCollection services)
         {
-            services.AddTransient<PutCategorySpecificationsValidator>();
-            services.AddTransient<PostCategorySpecificationsValidator>();
-            services.AddTransient<PatchCategorySpecificationsValidator>();
+            services.AddTransient<CreateCategorySpecificationsValidator>();
             services.AddTransient<DeleteCategorySpecificationsValidator>();
+            services.AddTransient<UpdateCategorySpecificationsValidator>();
 
-            services.AddTransient<PutCustomerSpecificationsValidator>();
-            services.AddTransient<PostCustomerSpecificationsValidator>();
-            services.AddTransient<PatchCustomerSpecificationsValidator>();
+            services.AddTransient<CreateCustomerSpecificationsValidator>();
             services.AddTransient<DeleteCustomerSpecificationsValidator>();
+            services.AddTransient<UpdateCustomerSpecificationsValidator>();
 
-            services.AddTransient<PutImageSpecificationsValidator>();
-            services.AddTransient<PostImageSpecificationsValidator>();
-            services.AddTransient<PatchImageSpecificationsValidator>();
+            services.AddTransient<CreateImageSpecificationsValidator>();
             services.AddTransient<DeleteImageSpecificationsValidator>();
+            services.AddTransient<UpdateImageSpecificationsValidator>();
 
-            services.AddTransient<PutOrderSpecificationsValidator>();
-            services.AddTransient<PostOrderSpecificationsValidator>();
-            services.AddTransient<PatchOrderSpecificationsValidator>();
+            services.AddTransient<CreateOrderSpecificationsValidator>();
             services.AddTransient<DeleteOrderSpecificationsValidator>();
+            services.AddTransient<UpdateOrderSpecificationsValidator>();
 
-            services.AddTransient<PutOrderedProductSpecificationsValidator>();
-            services.AddTransient<PostOrderedProductSpecificationsValidator>();
-            services.AddTransient<PatchOrderedProductSpecificationsValidator>();
+            services.AddTransient<CreateOrderedProductSpecificationsValidator>();
             services.AddTransient<DeleteOrderedProductSpecificationsValidator>();
+            services.AddTransient<UpdateOrderedProductSpecificationsValidator>();
 
-            services.AddTransient<PutProductSpecificationsValidator>();
-            services.AddTransient<PostProductSpecificationsValidator>();
-            services.AddTransient<PatchProductSpecificationsValidator>();
+            services.AddTransient<CreateProductSpecificationsValidator>();
             services.AddTransient<DeleteProductSpecificationsValidator>();
+            services.AddTransient<UpdateProductSpecificationsValidator>();
 
-            services.AddTransient<PutSampleSpecificationsValidator>();
-            services.AddTransient<PostSampleSpecificationsValidator>();
-            services.AddTransient<PatchSampleSpecificationsValidator>();
+            services.AddTransient<CreateSampleSpecificationsValidator>();
             services.AddTransient<DeleteSampleSpecificationsValidator>();
+            services.AddTransient<UpdateSampleSpecificationsValidator>();
 
             return services;
         }

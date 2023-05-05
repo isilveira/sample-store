@@ -1,11 +1,11 @@
-﻿using Store.Core.Application.Default.Samples.Commands.DeleteSample;
-using Store.Core.Application.Default.Samples.Commands.PatchSample;
-using Store.Core.Application.Default.Samples.Commands.PostSample;
-using Store.Core.Application.Default.Samples.Commands.PutSample;
-using Store.Core.Application.Default.Samples.Queries.GetSampleByID;
-using Store.Core.Application.Default.Samples.Queries.GetSamplesByFilter;
+﻿using Microsoft.AspNetCore.Mvc;
+using Store.Core.Application.Contexts.Default.Samples.Commands.DeleteSample;
+using Store.Core.Application.Contexts.Default.Samples.Commands.PatchSample;
+using Store.Core.Application.Contexts.Default.Samples.Commands.PostSample;
+using Store.Core.Application.Contexts.Default.Samples.Commands.PutSample;
+using Store.Core.Application.Contexts.Default.Samples.Queries.GetSampleById;
+using Store.Core.Application.Contexts.Default.Samples.Queries.GetSamplesByFilter;
 using Store.Presentations.WebAPI.Abstractions.Controllers;
-using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,7 +20,7 @@ namespace Store.Resources
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetSampleByIDQueryResponse>> Get(GetSampleByIDQuery request, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ActionResult<GetSampleByIdQueryResponse>> Get(GetSampleByIdQuery request, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await Mediator.Send(request, cancellationToken);
         }

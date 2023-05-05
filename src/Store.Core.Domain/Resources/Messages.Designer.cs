@@ -61,56 +61,74 @@ namespace Store.Core.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} cannot be empty!.
+        ///   Looks up a localized string similar to &apos;{0}&apos; cannot be empty!.
         /// </summary>
-        public static string _0__cannot_be_empty_ {
+        public static string @__0___cannot_be_empty_ {
             get {
-                return ResourceManager.GetString("{0} cannot be empty!", resourceCulture);
+                return ResourceManager.GetString("\'{0}\' cannot be empty!", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} cannot be null!.
+        ///   Looks up a localized string similar to &apos;{0}&apos; cannot be null!.
         /// </summary>
-        public static string _0__cannot_be_null_ {
+        public static string @__0___cannot_be_null_ {
             get {
-                return ResourceManager.GetString("{0} cannot be null!", resourceCulture);
+                return ResourceManager.GetString("\'{0}\' cannot be null!", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is required!.
+        ///   Looks up a localized string similar to &apos;{0}&apos; is required!.
         /// </summary>
-        public static string _0__is_required_ {
+        public static string @__0___is_required_ {
             get {
-                return ResourceManager.GetString("{0} is required!", resourceCulture);
+                return ResourceManager.GetString("\'{0}\' is required!", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} not found!.
+        ///   Looks up a localized string similar to &apos;{0}&apos; not found!.
         /// </summary>
-        public static string _0__not_found_ {
+        public static string @__0___not_found_ {
             get {
-                return ResourceManager.GetString("{0} not found!", resourceCulture);
+                return ResourceManager.GetString("\'{0}\' not found!", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {3} must have a maximum of {1} characters!.
+        ///   Looks up a localized string similar to &apos;{2}&apos; must be greater than &apos;{0}&apos;!.
         /// </summary>
-        public static string _3__must_have_a_maximum_of__1__characters_ {
+        public static string @__2___must_be_greater_than___0___ {
             get {
-                return ResourceManager.GetString("{3} must have a maximum of {1} characters!", resourceCulture);
+                return ResourceManager.GetString("\'{2}\' must be greater than \'{0}\'!", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {3} must have at least {0} characters!.
+        ///   Looks up a localized string similar to &apos;{2}&apos; must be greater than or equal to &apos;{0}&apos;!.
         /// </summary>
-        public static string _3__must_have_at_least__0__characters_ {
+        public static string @__2___must_be_greater_than_or_equal_to___0___ {
             get {
-                return ResourceManager.GetString("{3} must have at least {0} characters!", resourceCulture);
+                return ResourceManager.GetString("\'{2}\' must be greater than or equal to \'{0}\'!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{3}&apos; must have a maximum of &apos;{1}&apos; characters!.
+        /// </summary>
+        public static string @__3___must_have_a_maximum_of___1___characters_ {
+            get {
+                return ResourceManager.GetString("\'{3}\' must have a maximum of \'{1}\' characters!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{3}&apos; must have at least &apos;{0}&apos; characters!.
+        /// </summary>
+        public static string @__3___must_have_at_least___0___characters_ {
+            get {
+                return ResourceManager.GetString("\'{3}\' must have at least \'{0}\' characters!", resourceCulture);
             }
         }
         

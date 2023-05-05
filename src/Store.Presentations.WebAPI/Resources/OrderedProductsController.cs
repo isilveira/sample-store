@@ -1,13 +1,13 @@
-﻿using Store.Core.Application.Default.OrderedProducts.Commands.DeleteOrderedProduct;
-using Store.Core.Application.Default.OrderedProducts.Commands.PatchOrderedProduct;
-using Store.Core.Application.Default.OrderedProducts.Commands.PostOrderedProduct;
-using Store.Core.Application.Default.OrderedProducts.Commands.PutOrderedProduct;
-using Store.Core.Application.Default.OrderedProducts.Queries.GetOrderedProductByID;
-using Store.Core.Application.Default.OrderedProducts.Queries.GetOrderedProductsByFilter;
-using Store.Presentations.WebAPI.Abstractions.Controllers;
+﻿using Store.Presentations.WebAPI.Abstractions.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
+using Store.Core.Application.Contexts.Store.OrderedProducts.Commands.DeleteOrderedProduct;
+using Store.Core.Application.Contexts.Store.OrderedProducts.Commands.PatchOrderedProduct;
+using Store.Core.Application.Contexts.Store.OrderedProducts.Commands.PostOrderedProduct;
+using Store.Core.Application.Contexts.Store.OrderedProducts.Commands.PutOrderedProduct;
+using Store.Core.Application.Contexts.Store.OrderedProducts.Queries.GetOrderedProductById;
+using Store.Core.Application.Contexts.Store.OrderedProducts.Queries.GetOrderedProductsByFilter;
 
 namespace Store.Resources
 {
@@ -20,7 +20,7 @@ namespace Store.Resources
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetOrderedProductByIDQueryResponse>> Get(GetOrderedProductByIDQuery request, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ActionResult<GetOrderedProductByIdQueryResponse>> Get(GetOrderedProductByIdQuery request, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await Mediator.Send(request, cancellationToken);
         }

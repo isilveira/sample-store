@@ -129,4 +129,13 @@
   <data name="RegisteredAt" xml:space="preserve">
     <value>Cadastrado em</value>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identificador do cliente</value>
+  </data>
+  <data name="Registered At" xml:space="preserve">
+    <value>Cadastrado em</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Encomendas</value>
+  </data>
 </root>

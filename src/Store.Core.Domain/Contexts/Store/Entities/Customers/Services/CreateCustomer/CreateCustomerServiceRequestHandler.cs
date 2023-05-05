@@ -24,7 +24,8 @@ namespace Store.Core.Domain.Contexts.Store.Entities.Customers.Services.CreateCus
             IStoreDbContextWriter writer,
             IStringLocalizer<CreateCustomerServiceRequestHandler> localizer,
             CustomerValidator entityValidator,
-            CreateCustomerSpecificationsValidator domainValidator) : base(localizer, entityValidator, domainValidator)
+            CreateCustomerSpecificationsValidator domainValidator
+        ) : base(localizer, entityValidator, domainValidator)
         {
             Writer = writer;
         }

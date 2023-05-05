@@ -3,7 +3,7 @@ using BAYSOFT.Abstractions.Crosscutting.InheritStringLocalization;
 using Microsoft.Extensions.Localization;
 using Store.Core.Domain.Contexts.Default.Entities.Samples.Entity;
 using Store.Core.Domain.Contexts.Default.Entities.Samples.Resources;
-using Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.DomainValidations.Default.Samples;
+using Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.DomainValidations;
 using Store.Core.Domain.Contexts.Default.Entities.Samples.Validations.EntityValidations.Default;
 using Store.Core.Domain.Contexts.Default.Interfaces.Infrastructures.Data;
 using Store.Core.Domain.Contexts.Default.Resources;

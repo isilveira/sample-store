@@ -61,11 +61,38 @@ namespace Store.Core.Domain.Contexts.Store.Entities.Images.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image id.
+        /// </summary>
+        public static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MIME type.
+        /// </summary>
+        public static string Mime_Type {
+            get {
+                return ResourceManager.GetString("Mime Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MIME type.
         /// </summary>
         public static string MimeType {
             get {
                 return ResourceManager.GetString("MimeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product.
+        /// </summary>
+        public static string Product {
+            get {
+                return ResourceManager.GetString("Product", resourceCulture);
             }
         }
         

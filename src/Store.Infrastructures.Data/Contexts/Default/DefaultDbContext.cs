@@ -13,7 +13,7 @@ namespace Store.Infrastructures.Data.Contexts.Default
             Database.Migrate();
         }
 
-        public DefaultDbContext(DbContextOptions options) : base(options)
+        public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options)
         {
             Database.Migrate();
         }

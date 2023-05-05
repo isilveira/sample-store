@@ -133,4 +133,10 @@
   <data name="Products" xml:space="preserve">
     <value>Products</value>
   </data>
+  <data name="Ordered Product" xml:space="preserve">
+    <value>Ordered product</value>
+  </data>
+  <data name="Ordered Products" xml:space="preserve">
+    <value>Ordered products</value>
+  </data>
 </root>

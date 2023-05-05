@@ -1,13 +1,13 @@
-﻿using Store.Core.Application.Default.Customers.Commands.DeleteCustomer;
-using Store.Core.Application.Default.Customers.Commands.PatchCustomer;
-using Store.Core.Application.Default.Customers.Commands.PostCustomer;
-using Store.Core.Application.Default.Customers.Commands.PutCustomer;
-using Store.Core.Application.Default.Customers.Queries.GetCustomerByID;
-using Store.Core.Application.Default.Customers.Queries.GetCustomersByFilter;
-using Store.Presentations.WebAPI.Abstractions.Controllers;
+﻿using Store.Presentations.WebAPI.Abstractions.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
+using Store.Core.Application.Contexts.Store.Customers.Commands.DeleteCustomer;
+using Store.Core.Application.Contexts.Store.Customers.Commands.PatchCustomer;
+using Store.Core.Application.Contexts.Store.Customers.Commands.PostCustomer;
+using Store.Core.Application.Contexts.Store.Customers.Commands.PutCustomer;
+using Store.Core.Application.Contexts.Store.Customers.Queries.GetCustomerById;
+using Store.Core.Application.Contexts.Store.Customers.Queries.GetCustomersByFilter;
 
 namespace Store.Resources
 {
@@ -20,7 +20,7 @@ namespace Store.Resources
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetCustomerByIDQueryResponse>> Get(GetCustomerByIDQuery request, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ActionResult<GetCustomerByIdQueryResponse>> Get(GetCustomerByIdQuery request, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await Mediator.Send(request, cancellationToken);
         }

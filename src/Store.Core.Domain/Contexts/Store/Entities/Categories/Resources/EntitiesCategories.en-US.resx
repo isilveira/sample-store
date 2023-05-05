@@ -132,4 +132,19 @@
   <data name="A register with this name on the root category already exists!" xml:space="preserve">
     <value>A register with this name on the root category already exists!</value>
   </data>
+  <data name="Root Category" xml:space="preserve">
+    <value>Root category</value>
+  </data>
+  <data name="Sub Categories" xml:space="preserve">
+    <value>Subcategories</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Category identification</value>
+  </data>
+  <data name="Root Category Id" xml:space="preserve">
+    <value>Root category identification</value>
+  </data>
+  <data name="RootCategoryId" xml:space="preserve">
+    <value>Root category identification</value>
+  </data>
 </root>

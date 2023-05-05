@@ -80,6 +80,15 @@ namespace Store.Core.Domain.Contexts.Store.Entities.Categories.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category Id.
+        /// </summary>
+        public static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {
@@ -91,9 +100,45 @@ namespace Store.Core.Domain.Contexts.Store.Entities.Categories.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Root category.
         /// </summary>
+        public static string Root_Category {
+            get {
+                return ResourceManager.GetString("Root Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Root category id.
+        /// </summary>
+        public static string Root_Category_Id {
+            get {
+                return ResourceManager.GetString("Root Category Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Root category.
+        /// </summary>
         public static string RootCategory {
             get {
                 return ResourceManager.GetString("RootCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Root category id.
+        /// </summary>
+        public static string RootCategoryId {
+            get {
+                return ResourceManager.GetString("RootCategoryId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subcategories.
+        /// </summary>
+        public static string Sub_Categories {
+            get {
+                return ResourceManager.GetString("Sub Categories", resourceCulture);
             }
         }
         

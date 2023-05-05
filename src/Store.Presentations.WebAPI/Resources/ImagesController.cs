@@ -1,13 +1,13 @@
-﻿using Store.Core.Application.Default.Images.Commands.DeleteImage;
-using Store.Core.Application.Default.Images.Commands.PatchImage;
-using Store.Core.Application.Default.Images.Commands.PostImage;
-using Store.Core.Application.Default.Images.Commands.PutImage;
-using Store.Core.Application.Default.Images.Queries.GetImageByID;
-using Store.Core.Application.Default.Images.Queries.GetImagesByFilter;
-using Store.Presentations.WebAPI.Abstractions.Controllers;
+﻿using Store.Presentations.WebAPI.Abstractions.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
+using Store.Core.Application.Contexts.Store.Images.Commands.DeleteImage;
+using Store.Core.Application.Contexts.Store.Images.Commands.PatchImage;
+using Store.Core.Application.Contexts.Store.Images.Commands.PostImage;
+using Store.Core.Application.Contexts.Store.Images.Commands.PutImage;
+using Store.Core.Application.Contexts.Store.Images.Queries.GetImageById;
+using Store.Core.Application.Contexts.Store.Images.Queries.GetImagesByFilter;
 
 namespace Store.Resources
 {
@@ -20,7 +20,7 @@ namespace Store.Resources
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetImageByIDQueryResponse>> Get(GetImageByIDQuery request, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ActionResult<GetImageByIdQueryResponse>> Get(GetImageByIdQuery request, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await Mediator.Send(request, cancellationToken);
         }

@@ -1,13 +1,13 @@
-﻿using Store.Core.Application.Default.Categories.Commands.DeleteCategory;
-using Store.Core.Application.Default.Categories.Commands.PatchCategory;
-using Store.Core.Application.Default.Categories.Commands.PostCategory;
-using Store.Core.Application.Default.Categories.Commands.PutCategory;
-using Store.Core.Application.Default.Categories.Queries.GetCategoryByID;
-using Store.Core.Application.Default.Categories.Queries.GetCategoriesByFilter;
-using Store.Presentations.WebAPI.Abstractions.Controllers;
+﻿using Store.Presentations.WebAPI.Abstractions.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
+using Store.Core.Application.Contexts.Store.Categories.Commands.DeleteCategory;
+using Store.Core.Application.Contexts.Store.Categories.Commands.PatchCategory;
+using Store.Core.Application.Contexts.Store.Categories.Commands.PostCategory;
+using Store.Core.Application.Contexts.Store.Categories.Commands.PutCategory;
+using Store.Core.Application.Contexts.Store.Categories.Queries.GetCategoriesByFilter;
+using Store.Core.Application.Contexts.Store.Categories.Queries.GetCategoryById;
 
 namespace Store.Resources
 {
@@ -20,7 +20,7 @@ namespace Store.Resources
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetCategoryByIDQueryResponse>> Get(GetCategoryByIDQuery request, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ActionResult<GetCategoryByIdQueryResponse>> Get(GetCategoryByIdQuery request, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await Mediator.Send(request, cancellationToken);
         }
