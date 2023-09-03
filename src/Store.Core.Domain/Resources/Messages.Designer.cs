@@ -61,6 +61,15 @@ namespace Store.Core.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; cannot be 0!.
+        /// </summary>
+        public static string @__0___cannot_be_0_ {
+            get {
+                return ResourceManager.GetString("\'{0}\' cannot be 0!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; cannot be empty!.
         /// </summary>
         public static string @__0___cannot_be_empty_ {
@@ -97,24 +106,6 @@ namespace Store.Core.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{2}&apos; must be greater than &apos;{0}&apos;!.
-        /// </summary>
-        public static string @__2___must_be_greater_than___0___ {
-            get {
-                return ResourceManager.GetString("\'{2}\' must be greater than \'{0}\'!", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;{2}&apos; must be greater than or equal to &apos;{0}&apos;!.
-        /// </summary>
-        public static string @__2___must_be_greater_than_or_equal_to___0___ {
-            get {
-                return ResourceManager.GetString("\'{2}\' must be greater than or equal to \'{0}\'!", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &apos;{3}&apos; must have a maximum of &apos;{1}&apos; characters!.
         /// </summary>
         public static string @__3___must_have_a_maximum_of___1___characters_ {
@@ -129,15 +120,6 @@ namespace Store.Core.Domain.Resources {
         public static string @__3___must_have_at_least___0___characters_ {
             get {
                 return ResourceManager.GetString("\'{3}\' must have at least \'{0}\' characters!", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A register with this description already exists!.
-        /// </summary>
-        public static string A_register_with_this_description_already_exists_ {
-            get {
-                return ResourceManager.GetString("A register with this description already exists!", resourceCulture);
             }
         }
         
@@ -165,6 +147,24 @@ namespace Store.Core.Domain.Resources {
         public static string Operation_failed_in_request_validation_ {
             get {
                 return ResourceManager.GetString("Operation failed in request validation!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Store.
+        /// </summary>
+        public static string Store {
+            get {
+                return ResourceManager.GetString("Store", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stores.
+        /// </summary>
+        public static string Stores {
+            get {
+                return ResourceManager.GetString("Stores", resourceCulture);
             }
         }
         

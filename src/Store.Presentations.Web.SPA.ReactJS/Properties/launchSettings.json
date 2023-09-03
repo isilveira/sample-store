@@ -1,0 +1,21 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:64628",
+      "sslPort": 44397
+    }
+  },
+  "profiles": {
+    "BAYSOFT.Presentations.Web.SPA.ReactJS": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "https://localhost:6101/variables/environment": "Development"
+      },
+      "applicationUrl": "https://localhost:6101;http://localhost:6100"
+    }
+  }
+}

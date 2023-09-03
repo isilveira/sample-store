@@ -1,54 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Contexts\Default\Entities\Samples\Resources\EntitiesSamples.Designer.cs">
+    <PackageReference Include="BAYSOFT.Abstractions" Version="1.1.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="ModelWrapper" Version="4.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Default\Samples\Resources\EntitiesSamples.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EntitiesSamples.resx</DependentUpon>
     </Compile>
-    <Compile Update="Contexts\Default\Resources\EntitiesDefault.Designer.cs">
+    <Compile Update="Resources\EntitiesDefault.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EntitiesDefault.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Contexts\Store\Entities\Categories\Resources\EntitiesCategories.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EntitiesCategories.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Contexts\Store\Entities\Customers\Resources\EntitiesCustomers.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EntitiesCustomers.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Contexts\Store\Entities\Images\Resources\EntitiesImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EntitiesImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Contexts\Store\Entities\OrderedProducts\Resources\EntitiesOrderedProducts.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EntitiesOrderedProducts.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Contexts\Store\Entities\Orders\Resources\EntitiesOrders.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EntitiesOrders.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Contexts\Store\Entities\Products\Resources\EntitiesProducts.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EntitiesProducts.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Contexts\Store\Resources\EntitiesStore.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EntitiesStore.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\Messages.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -58,41 +29,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Contexts\Default\Entities\Samples\Resources\EntitiesSamples.resx">
+    <EmbeddedResource Update="Default\Samples\Resources\EntitiesSamples.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesSamples.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Default\Resources\EntitiesDefault.resx">
+    <EmbeddedResource Update="Resources\EntitiesDefault.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntitiesDefault.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Store\Entities\Categories\Resources\EntitiesCategories.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntitiesCategories.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Store\Entities\Customers\Resources\EntitiesCustomers.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntitiesCustomers.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Store\Entities\Images\Resources\EntitiesImages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntitiesImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Store\Entities\OrderedProducts\Resources\EntitiesOrderedProducts.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntitiesOrderedProducts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Store\Entities\Orders\Resources\EntitiesOrders.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntitiesOrders.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Store\Entities\Products\Resources\EntitiesProducts.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntitiesProducts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Contexts\Store\Resources\EntitiesStore.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntitiesStore.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -101,16 +44,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contexts\Store\Entities\Images\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\OrderedProducts\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Orders\Specifications\" />
-    <Folder Include="Contexts\Store\Entities\Products\Specifications\" />
     <Folder Include="Interfaces\Infrastructures\Data\" />
     <Folder Include="Interfaces\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\baysoft-abstractions\src\BAYSOFT.Abstractions\BAYSOFT.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
