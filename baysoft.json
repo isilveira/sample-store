@@ -1007,7 +1007,7 @@
             {
               "Name": "Id",
               "DisplayName": "Identificador",
-              "Type": "imt",
+              "Type": "int",
               "DbName": "Id",
               "DbType": "INT",
               "IsNullable": false,
@@ -1118,7 +1118,7 @@
               "Property": {
                 "Name": "Id",
                 "DisplayName": "Identificador",
-                "Type": "imt",
+                "Type": "int",
                 "DbName": "Id",
                 "DbType": "INT",
                 "IsNullable": false,
@@ -1298,7 +1298,7 @@
                   "Property": {
                     "Name": "Id",
                     "DisplayName": "Identificador",
-                    "Type": "imt",
+                    "Type": "int",
                     "DbName": "Id",
                     "DbType": "INT",
                     "IsNullable": false,
@@ -1362,7 +1362,7 @@
                   "Property": {
                     "Name": "Id",
                     "DisplayName": "Identificador",
-                    "Type": "imt",
+                    "Type": "int",
                     "DbName": "Id",
                     "DbType": "INT",
                     "IsNullable": false,
@@ -1389,7 +1389,7 @@
                   "Property": {
                     "Name": "Id",
                     "DisplayName": "Identificador",
-                    "Type": "imt",
+                    "Type": "int",
                     "DbName": "Id",
                     "DbType": "INT",
                     "IsNullable": false,
