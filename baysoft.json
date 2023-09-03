@@ -76,7 +76,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -288,7 +288,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -368,7 +368,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -395,7 +395,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -483,7 +483,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -515,7 +515,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Customer"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -549,7 +549,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Customer"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -595,7 +595,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Customer"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -622,7 +622,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -654,7 +654,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Customer"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -681,7 +681,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -708,7 +708,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -784,7 +784,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -916,7 +916,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -964,7 +964,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -991,7 +991,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1127,7 +1127,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -1159,7 +1159,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -1193,7 +1193,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -1275,7 +1275,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1307,7 +1307,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -1339,7 +1339,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1371,7 +1371,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1398,7 +1398,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1474,7 +1474,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -1522,7 +1522,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Product"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -1572,7 +1572,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Product"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -1670,7 +1670,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Product"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1702,7 +1702,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -1750,7 +1750,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Product"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1782,7 +1782,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1809,7 +1809,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -1925,7 +1925,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -1941,7 +1941,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Product"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -1957,7 +1957,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Order"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -1975,7 +1975,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -1991,7 +1991,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Product"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -2007,7 +2007,7 @@
                 "IsForeignKey": true,
                 "RelatedEntityName": "Order"
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             }
           ],
@@ -2073,7 +2073,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -2089,7 +2089,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Product"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -2105,7 +2105,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Order"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -2153,7 +2153,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -2169,7 +2169,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Product"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -2185,7 +2185,7 @@
                     "IsForeignKey": true,
                     "RelatedEntityName": "Order"
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -2303,7 +2303,7 @@
                 "IsForeignKey": false,
                 "RelatedEntityName": null
               },
-              "Rule": "NotEquals(0)",
+              "Rule": "NotEqual(0)",
               "Message": "\u0027{0}\u0027 cannot be 0!"
             },
             {
@@ -2435,7 +2435,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 },
                 {
@@ -2483,7 +2483,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
@@ -2510,7 +2510,7 @@
                     "IsForeignKey": false,
                     "RelatedEntityName": null
                   },
-                  "Rule": "NotEquals(0)",
+                  "Rule": "NotEqual(0)",
                   "Message": "\u0027{0}\u0027 cannot be 0!"
                 }
               ]
